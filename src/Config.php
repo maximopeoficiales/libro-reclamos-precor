@@ -4,7 +4,7 @@ namespace IZNOPS;
 
 class Config
 {
-   
+
     /*
     * Plugins option
     * storage in database the option value
@@ -12,86 +12,81 @@ class Config
     * @example ["example_data" => 'foo',]
     * @return void
     */
-    public $plugin_options=[];
+    public $plugin_options = [];
     /**
-    * Language Option
-    * define a unique word for translate call
-    */
-    public $language_name='antonella';
+     * Language Option
+     * define a unique word for translate call
+     */
+    public $language_name = 'antonella';
     /**
-    * Plugin text prefix
-    * define a unique word for this plugin
-    */
-    public $plugin_prefix='ch_nella';
+     * Plugin text prefix
+     * define a unique word for this plugin
+     */
+    public $plugin_prefix = 'ch_nella';
     /**
-    * POST data process
-    * get the post data and execute the function
-    * @example ['post_data'=>'IZNOPS::function']
-    */
-    public $post=[
-    ];
+     * POST data process
+     * get the post data and execute the function
+     * @example ['post_data'=>'IZNOPS::function']
+     */
+    public $post = [];
     /**
-    * GET data process
-    * get the get data and execute the function
-    * @example ['get_data'=>'IZNOPS::function']
-    */
-    public $get=[
-    ];
+     * GET data process
+     * get the get data and execute the function
+     * @example ['get_data'=>'IZNOPS::function']
+     */
+    public $get = [];
     /**
-    * add_filter data functions
-    * @input array
-    * @example ['body_class','IZNOPS::function',10,2]
-    * @example ['body_class',['IZNOPS','function'],10,2]
-    */
-    public $add_filter=[
-    ];
+     * add_filter data functions
+     * @input array
+     * @example ['body_class','IZNOPS::function',10,2]
+     * @example ['body_class',['IZNOPS','function'],10,2]
+     */
+    public $add_filter = [];
     /**
-    * add_action data functions
-    * @input array
-    * @example ['body_class','IZNOPS::function',10,2]
-    * @example ['body_class',['IZNOPS','function'],10,2]
-    */
-    public $add_action=[
-    ];
+     * add_action data functions
+     * @input array
+     * @example ['body_class','IZNOPS::function',10,2]
+     * @example ['body_class',['IZNOPS','function'],10,2]
+     */
+    public $add_action = [];
     /**
-    * add custom shortcodes
-    * @input array
-    * @example [['example','IZNOPS\ExampleController::example_shortcode']]
-    */
-    public $shortcodes=[
-        ['example','IZNOPS\ExampleController::example_shortcode']
+     * add custom shortcodes
+     * @input array
+     * @example [['example','IZNOPS\ExampleController::example_shortcode']]
+     */
+    public $shortcodes = [
+        ['lrp_registrar_reclamo', [__NAMESPACE__ . '\ShortcodeController', 'registrarReclamo']],
     ];
     /**
      * add Gutenberg's blocks
      */
-    public $gutenberg_blocks =[
-    ];
+    public $gutenberg_blocks = [];
     /**
-    * Dashboard
+     * Dashboard
 
-    * @reference: https://codex.wordpress.org/Function_Reference/wp_add_dashboard_widget
-    */
-    public $dashboard=[
+     * @reference: https://codex.wordpress.org/Function_Reference/wp_add_dashboard_widget
+     */
+    public $dashboard = [
         [
-        'slug'      => '',
-        'name'      => '',
-        'function'  => '', // example: __NAMESPACE__.'\Admin\PageAdmin::DashboardExample',
-        'callback'  => '',
-        'args'      => '',
+            'slug'      => '',
+            'name'      => '',
+            'function'  => '', // example: __NAMESPACE__.'\Admin\PageAdmin::DashboardExample',
+            'callback'  => '',
+            'args'      => '',
         ]
 
     ];
     /**
-    * Files for use in Dashboard
-    */
-    public $files_dashboard=[];
+     * Files for use in Dashboard
+     */
+    public $files_dashboard = [];
 
     /*
     * Plugin menu
     * set your menu option here
     */
-    public $plugin_menu=[
-    /*
+    public $plugin_menu = [
+        /*
         [
             "path"      => ["page"],
             "name"      => "My Custom Page",
@@ -152,8 +147,7 @@ class Config
                 "slug"      => "sub-option",
                 "function"  => __NAMESPACE__."\Admin::option_page",
             ]
-        */
-        ];
+        */];
 
     /**
      * Custom Post Type
@@ -163,7 +157,7 @@ class Config
      * https://codex.wordpress.org/Function_Reference/register_post_type
      */
 
-    public $post_types =[
+    public $post_types = [
         [
             "singular"      => "",
             "plural"        => "",
@@ -180,7 +174,7 @@ class Config
             */
         ],
     ];
-    
+
     /**
      * Taxonomies
      * for make taxonomies
@@ -202,9 +196,9 @@ class Config
             "rewrite"       =>[],
             "capabilities"  =>[]
             */
-        ] 
+        ]
     ];
-    
+
     /**
      * Widget
      * For register a Widget please:
@@ -212,6 +206,5 @@ class Config
      * @input array
      * @example public $widget = [__NAMESPACE__.'\YouClassWidget']  //only the class
      */
-    public $widgets=[];
-    
+    public $widgets = [];
 }
