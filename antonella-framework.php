@@ -31,6 +31,4 @@ defined('ABSPATH') or die(__('Lo siento por aqui no puedes pasar :)'));
 define('NELLA_URL', __FILE__);
 
 $loader = require __DIR__ . '/vendor/autoload.php';
-// carga la instancia de la bd
-$bd = require __DIR__ . "/database.php";
 $antonella = new Start;

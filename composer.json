@@ -44,6 +44,7 @@
     },
     "files": [
       "src/helpers.php",
+      "database.php",
       "src/models.php"
     ]
   },
