@@ -32,5 +32,5 @@ define('NELLA_URL', __FILE__);
 
 $loader = require __DIR__ . '/vendor/autoload.php';
 // carga la instancia de la bd
-$bd = require __DIR__ . "/src/db.php";
+$bd = require __DIR__ . "/database.php";
 $antonella = new Start;
