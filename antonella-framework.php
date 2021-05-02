@@ -1,5 +1,9 @@
 <?php
+
 namespace IZNOPS;
+
+date_default_timezone_set('America/Lima');
+
 /*
 Plugin Name: Libro de Reclamacion para Precor
 Plugin URI:
@@ -14,7 +18,7 @@ Text Domain: Carlos Herrera
 Domain Path: /languages
 */
 
-defined( 'ABSPATH' ) or die( __('Lo siento por aqui no puedes pasar :)') );
+defined('ABSPATH') or die(__('Lo siento por aqui no puedes pasar :)'));
 
 /*
 * Class Caller.
@@ -24,7 +28,9 @@ defined( 'ABSPATH' ) or die( __('Lo siento por aqui no puedes pasar :)') );
 *
 * @return null
 */
-define('NELLA_URL',__FILE__);
-date_default_timezone_set('America/Lima');
+define('NELLA_URL', __FILE__);
+
 $loader = require __DIR__ . '/vendor/autoload.php';
-$antonella= new Start;
+// carga la instancia de la bd
+$bd = require __DIR__ . "/src/db.php";
+$antonella = new Start;

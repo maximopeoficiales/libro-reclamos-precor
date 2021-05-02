@@ -43,7 +43,8 @@
       "IZNOPS\\": "src/"
     },
     "files": [
-      "src/helpers.php"
+      "src/helpers.php",
+      "src/models.php"
     ]
   },
   "extra": {
