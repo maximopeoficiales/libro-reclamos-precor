@@ -30,7 +30,8 @@
         "rakit/validation": "^1.4"
     },
     "require-dev":{
-        "vlucas/phpdotenv":"^3.5"
+        "vlucas/phpdotenv":"^3.5",
+        "symfony/var-dumper": "^5.2"
     },
     "autoload": {
         "psr-4": {"IZNOPS\\": "src/"},
