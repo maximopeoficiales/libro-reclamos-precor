@@ -22,24 +22,39 @@
                 <input type="text" name="nombre" id="nombre" required>
                 <span class="lrp-highlight"></span>
                 <span class="lrp-bar"></span>
-                <label for="">Ingresa tu Nombre Completo*</label>
+                <label for="nombre">Ingresa tu Nombre Completo*</label>
             </div>
             <div class="lrp-group">
-                <input type="text" name="documento" id="documento" class="form-control" placeholder="DNI / C.E / Pasaporte*" required>
-            </div>
-
-            <div class="lrp-group">
-                <input type="text" name="documento" id="documento" class="form-control" placeholder="RUC">
-            </div>
-            <div class="lrp-group">
-                <input type="text" name="celular" id="celular" class="form-control" placeholder="Telefono Celular*" required>
-            </div>
-            <div class="lrp-group">
-                <input type="email" name="correo" id="correo" class="form-control" placeholder="Correo*" required>
+                <input type="text" name="documento" id="documento" required>
+                <span class="lrp-highlight"></span>
+                <span class="lrp-bar"></span>
+                <label for="documento">DNI / C.E / Pasaporte*</label>
             </div>
 
             <div class="lrp-group">
-                <input type="text" name="direccion" id="direccion" class="form-control" placeholder="Direccion">
+                <input type="text" name="documento" id="documento">
+                <span class="lrp-highlight"></span>
+                <span class="lrp-bar"></span>
+                <label for="documento">RUC</label>
+            </div>
+            <div class="lrp-group">
+                <input type="text" name="celular" id="celular" required>
+                <span class="lrp-highlight"></span>
+                <span class="lrp-bar"></span>
+                <label for="celular">Telefono Celular*</label>
+            </div>
+            <div class="lrp-group">
+                <input type="email" name="correo" id="correo" required>
+                <span class="lrp-highlight"></span>
+                <span class="lrp-bar"></span>
+                <label for="correo">Correo*</label>
+            </div>
+
+            <div class="lrp-group">
+                <input type="text" name="direccion" id="direccion">
+                <span class="lrp-highlight"></span>
+                <span class="lrp-bar"></span>
+                <label for="direccion">Direccion</label>
             </div>
 
             <div class="form-group">
@@ -50,7 +65,10 @@
             </div>
 
             <div class="lrp-group">
-                <input type="email" name="correo2" id="correo2" class="form-control" placeholder="Correo Electronico para una copia del reclamo*">
+                <input type="email" name="correo2" id="correo2">
+                <span class="lrp-highlight"></span>
+                <span class="lrp-bar"></span>
+                <label for="correo2">Correo Electronico para una copia del reclamo*</label>
             </div>
 
 
@@ -61,7 +79,10 @@
             <h5>Informacion General</h5>
             <div class="">
                 <div class="lrp-group">
-                    <input type="text" name="relacionado" id="relacionado" class="form-control" placeholder="Ingresa el Producto o Servicio Relacionado*" required>
+                    <input type="text" name="relacionado" id="relacionado" required>
+                    <span class="lrp-highlight"></span>
+                    <span class="lrp-bar"></span>
+                    <label for="relacionado">Ingresa el Producto o Servicio Relacionado*</label>
                 </div>
 
                 <div class="form-group">
@@ -73,19 +94,28 @@
                 </div>
 
                 <div class="lrp-group">
-                    <input type="text" name="comprobante" id="comprobante" class="form-control" placeholder="Ingresa el Número de Comprobante">
-
+                    <input type="text" name="comprobante" id="comprobante">
+                    <span class="lrp-highlight"></span>
+                    <span class="lrp-bar"></span>
+                    <label for="comprobante">Ingresa el Número de Comprobante</label>
                 </div>
 
-                <div class="lrp-group">
+                <div class="form-group">
                     <input type="date" name="fecha" id="fecha" class="form-control" placeholder="Fecha de Compra*" required>
                 </div>
 
                 <div class="lrp-group">
-                    <input type="text" name="monto_reclamado" id="monto_reclamado" class="form-control" placeholder="Monto Reclamado">
+
+                    <input type="text" name="monto_reclamado" id="monto_reclamado">
+                    <span class="lrp-highlight"></span>
+                    <span class="lrp-bar"></span>
+                    <label for="monto_reclamado">Monto Reclamado</label>
                 </div>
                 <div class="lrp-group">
-                    <input type="text" name="ejecutivo" id="ejecutivo" class="form-control" placeholder="Nombre de Ejecutivo" aria-describedby="helpIdEjecutivo">
+                    <input type="text" name="ejecutivo" id="ejecutivo" aria-describedby="helpIdEjecutivo">
+                    <span class="lrp-highlight"></span>
+                    <span class="lrp-bar"></span>
+                    <label for="ejecutivo">Nombre de Ejecutivo</label>
                     <small id="helpIdEjecutivo" class="text-muted">Help text</small>
                 </div>
 
