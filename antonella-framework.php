@@ -8,7 +8,7 @@ date_default_timezone_set('America/Lima');
 Plugin Name: Libro de Reclamacion para Precor
 Plugin URI:
 Description: Libro de Reclamacion para Precor
-Version: 1
+Version: 1.0.0
 Author: Maximo Apaza Chirhuana
 Author URI:
 Framework: Antonella Framework for WP

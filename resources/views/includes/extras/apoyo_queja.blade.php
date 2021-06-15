@@ -1,0 +1,1 @@
+<p class="my-2 text-justify">En caso requiera apoyo para ingresar su queja o reclamo comuniquese al siguiente correo: <b class="lrp-color-primary">servicioalcliente@maxco.com.pe</b>, o al número <b class="lrp-color-primary">(511) 705-4040</b>, a fin de que alguien de nuestro equipo pueda ayudarlo en el ingreso correcto de la Reclamación.</p>

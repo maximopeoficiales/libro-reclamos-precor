@@ -11,10 +11,9 @@ class ShortcodeController
     {
 
         try {
-            $data = Users::get();
-            foreach ($data as $key => $user) {
-                echo $user->user_login . "<br>";
-            }
+            // $data = Users::get();
+            
+            return view("reclamo.create",[]);
         } catch (\Throwable $th) {
             echo $th;
         }

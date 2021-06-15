@@ -1,0 +1,164 @@
+:root {
+  --lrp-primary: #60ad29;
+  --lrp-white: #ffffff;
+  --lrp-green-white: #f9fff3;
+}
+/* global */
+
+/* .lrp-container {
+  font-family: "Roboto";
+  width: 100%;
+  background: #fff;
+} */
+/* form starting stylings ------------------------------- */
+.lrp-group {
+  position: relative;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+.lrp-group input {
+  font-size: 18px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #757575;
+}
+.lrp-group input:focus {
+  outline: none;
+}
+
+/* LABEL ======================================= */
+.lrp-group label {
+  color: #999;
+  font-size: 18px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 10px;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+
+/* active state */
+.lrp-group input:focus ~ label,
+.lrp-group input:valid ~ label {
+  top: -20px;
+  font-size: 14px;
+  color: var(--lrp-primary);
+}
+
+
+/* BOTTOM BARS ================================= */
+.lrp-bar {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+.lrp-bar:before,
+.lrp-bar:after {
+  content: "";
+  height: 2px;
+  width: 0;
+  bottom: 1px;
+  position: absolute;
+  background: var(--lrp-primary);
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+.lrp-bar:before {
+  left: 50%;
+}
+.lrp-bar:after {
+  right: 50%;
+}
+
+/* active state */
+.lrp-group input:focus ~ .lrp-bar:before,
+.lrp-group input:focus ~ .lrp-bar:after {
+  width: 50%;
+}
+
+/* HIGHLIGHTER ================================== */
+.lrp-highlight {
+  position: absolute;
+  height: 60%;
+  width: 100px;
+  top: 25%;
+  left: 0;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* active state */
+.lrp-group input:focus ~ .lrp-highlight {
+  -webkit-animation: inputHighlighter 0.3s ease;
+  -moz-animation: inputHighlighter 0.3s ease;
+  animation: inputHighlighter 0.3s ease;
+}
+
+/* ANIMATIONS ================ */
+@-webkit-keyframes inputHighlighter {
+  from {
+    background: var(--lrp-primary);
+  }
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
+@-moz-keyframes inputHighlighter {
+  from {
+    background: var(--lrp-primary);
+  }
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
+@keyframes inputHighlighter {
+  from {
+    background: var(--lrp-primary);
+  }
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
+/* fin de global */
+.lrp-bg-primary {
+  background-color: var(--lrp-primary);
+  color: var(--lrp-white);
+}
+.lrp-color-primary {
+  color: var(--lrp-primary);
+}
+
+
+/* botones */
+
+.lrp-btn {
+  cursor: pointer;
+  padding: 15px;
+  font-weight: bold;
+  width: 200px;
+}
+.lrp-btn-primary {
+  background-color: var(--lrp-primary);
+  color: var(--lrp-white);
+}
+.lrp-btn-lg {
+  width: 250px;
+}
+
+/* extras */
+.lrp-hr-bar {
+  background-color: var(--lrp-primary);
+  padding: 3px;
+  width: 100%;
+  margin-top: 100px;
+  border-radius: 10%;
+}
