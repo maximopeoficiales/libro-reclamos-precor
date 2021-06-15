@@ -13,11 +13,11 @@
 /* form starting stylings ------------------------------- */
 .lrp-group {
   position: relative;
-  margin-bottom: 20px;
-  margin-top: 20px;
+  margin-bottom: 30px;
+  margin-top: 30px;
 }
 .lrp-group input {
-  font-size: 18px;
+  font-size: 16px;
   padding: 10px 10px 10px 5px;
   display: block;
   width: 100%;
@@ -43,8 +43,12 @@
 }
 
 /* active state */
-.lrp-group input:focus ~ label,
-.lrp-group input:valid ~ label {
+/* .lrp-group input:focus ~ label {
+  top: -20px;
+  font-size: 14px;
+  color: var(--lrp-primary);
+} */
+.lrp-group input ~ label {
   top: -20px;
   font-size: 14px;
   color: var(--lrp-primary);

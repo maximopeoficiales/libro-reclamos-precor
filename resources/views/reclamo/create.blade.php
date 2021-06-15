@@ -11,8 +11,8 @@
 
             <h5>Código Cliente (Opcional)</h5>
             <div class="lrp-group">
-                <input type="text" name="cod_cli" id="cod_cli" aria-describedby="helpId">
-                <label for="cod_cli">Ingresa tu Código de Cliente</label>
+                <input type="text" name="cod_cli" id="cod_cli" aria-describedby="helpId" placeholder="Ingresa tu Código de Cliente">
+                <!-- <label for="cod_cli">Ingresa tu Código de Cliente</label> -->
                 <span class="lrp-highlight"></span>
                 <span class="lrp-bar"></span>
                 <small class="text-muted">Help text</small>
@@ -20,42 +20,42 @@
 
             <h5>Información Personal</h5>
             <div class="lrp-group">
-                <input type="text" name="nombre" id="nombre" required>
+                <input type="text" name="nombre" id="nombre" required placeholder="Ingresa tu Nombre Completo*">
                 <span class="lrp-highlight"></span>
                 <span class="lrp-bar"></span>
-                <label for="nombre">Ingresa tu Nombre Completo*</label>
+                <!-- <label for="nombre">Ingresa tu Nombre Completo*</label> -->
             </div>
             <div class="lrp-group">
-                <input type="text" name="documento" id="documento" required>
+                <input type="text" name="documento" id="documento" required placeholder="DNI / C.E / Pasaporte*">
                 <span class="lrp-highlight"></span>
                 <span class="lrp-bar"></span>
-                <label for="documento">DNI / C.E / Pasaporte*</label>
-            </div>
-
-            <div class="lrp-group">
-                <input type="text" name="documento" id="documento">
-                <span class="lrp-highlight"></span>
-                <span class="lrp-bar"></span>
-                <label for="documento">RUC</label>
-            </div>
-            <div class="lrp-group">
-                <input type="text" name="celular" id="celular" required>
-                <span class="lrp-highlight"></span>
-                <span class="lrp-bar"></span>
-                <label for="celular">Telefono Celular*</label>
-            </div>
-            <div class="lrp-group">
-                <input type="email" name="correo" id="correo" required>
-                <span class="lrp-highlight"></span>
-                <span class="lrp-bar"></span>
-                <label for="correo">Correo*</label>
+                <!-- <label for="documento">DNI / C.E / Pasaporte*</label> -->
             </div>
 
             <div class="lrp-group">
-                <input type="text" name="direccion" id="direccion">
+                <input type="text" name="documento" id="documento" placeholder="RUC">
                 <span class="lrp-highlight"></span>
                 <span class="lrp-bar"></span>
-                <label for="direccion">Direccion</label>
+                <!-- <label for="documento">RUC</label> -->
+            </div>
+            <div class="lrp-group">
+                <input type="text" name="celular" id="celular" required placeholder="Telefono Celular*">
+                <span class="lrp-highlight"></span>
+                <span class="lrp-bar"></span>
+                <!-- <label for="celular">Telefono Celular*</label> -->
+            </div>
+            <div class="lrp-group">
+                <input type="email" name="correo" id="correo" required placeholder="Correo*">
+                <span class="lrp-highlight"></span>
+                <span class="lrp-bar"></span>
+                <!-- <label for="correo">Correo*</label> -->
+            </div>
+
+            <div class="lrp-group">
+                <input type="text" name="direccion" id="direccion" placeholder="Direccion">
+                <span class="lrp-highlight"></span>
+                <span class="lrp-bar"></span>
+                <!-- <label for="direccion">Direccion</label> -->
             </div>
 
             <div class="form-group">
@@ -66,10 +66,10 @@
             </div>
 
             <div class="lrp-group">
-                <input type="email" name="correo2" id="correo2">
+                <input type="email" name="correo2" id="correo2" placeholder="Correo Electronico para una copia del reclamo*">
                 <span class="lrp-highlight"></span>
                 <span class="lrp-bar"></span>
-                <label for="correo2">Correo Electronico para una copia del reclamo*</label>
+                <!-- <label for="correo2">Correo Electronico para una copia del reclamo*</label> -->
             </div>
 
 
@@ -80,10 +80,10 @@
             <h5>Informacion General</h5>
             <div class="">
                 <div class="lrp-group">
-                    <input type="text" name="relacionado" id="relacionado" required>
+                    <input type="text" name="relacionado" id="relacionado" required placeholder="Ingresa el Producto o Servicio Relacionado*">
                     <span class="lrp-highlight"></span>
                     <span class="lrp-bar"></span>
-                    <label for="relacionado">Ingresa el Producto o Servicio Relacionado*</label>
+                    <!-- <label for="relacionado">Ingresa el Producto o Servicio Relacionado*</label> -->
                 </div>
 
                 <div class="form-group">
@@ -95,10 +95,10 @@
                 </div>
 
                 <div class="lrp-group">
-                    <input type="text" name="comprobante" id="comprobante">
+                    <input type="text" name="comprobante" id="comprobante" placeholder="Ingresa el Número de Comprobante">
                     <span class="lrp-highlight"></span>
                     <span class="lrp-bar"></span>
-                    <label for="comprobante">Ingresa el Número de Comprobante</label>
+                    <!-- <label for="comprobante">Ingresa el Número de Comprobante</label> -->
                 </div>
 
                 <div class="form-group">
@@ -107,16 +107,16 @@
 
                 <div class="lrp-group">
 
-                    <input type="text" name="monto_reclamado" id="monto_reclamado">
+                    <input type="text" name="monto_reclamado" id="monto_reclamado" placeholder="Monto Reclamado">
                     <span class="lrp-highlight"></span>
                     <span class="lrp-bar"></span>
-                    <label for="monto_reclamado">Monto Reclamado</label>
+                    <!-- <label for="monto_reclamado">Monto Reclamado</label> -->
                 </div>
                 <div class="lrp-group">
-                    <input type="text" name="ejecutivo" id="ejecutivo" aria-describedby="helpIdEjecutivo">
+                    <input type="text" name="ejecutivo" id="ejecutivo" aria-describedby="helpIdEjecutivo" placeholder="Nombre de Ejecutivo">
                     <span class="lrp-highlight"></span>
                     <span class="lrp-bar"></span>
-                    <label for="ejecutivo">Nombre de Ejecutivo</label>
+                    <!-- <label for="ejecutivo">Nombre de Ejecutivo</label> -->
                     <small id="helpIdEjecutivo" class="text-muted">Help text</small>
                 </div>
 
