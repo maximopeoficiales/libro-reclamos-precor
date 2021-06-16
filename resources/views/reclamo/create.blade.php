@@ -4,8 +4,9 @@
 <h6 class="lrp-color-primary">Registrar Reclamo</h6>
 
 
-<div class="row">
-    <form action="" method="post">
+<form action="" method="post" enctype="multipart/form-data">
+    <div class="row">
+
         <div class="col-md-6">
 
 
@@ -130,16 +131,16 @@
 
             <h5>Detalle de Reclamo</h5>
             <label for="">Marcar Tipo de Reclamacion*</label>
-            <div class="d-flex justify-content-between">
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="id_tipo_reclamo" id="id_tipo_reclamo" value="1">
+            <div class="d-flex justify-content-around">
+                <div class="form-check mx-2">
+                    <label class="lrp-checkbox-container d-flex align-items-center" id="id_tipo_reclamo">
+                        <input type="radio" class="form-check-input d-none" name="id_tipo_reclamo" value="1">
                         Reclamo
                     </label>
                 </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="id_tipo_reclamo" id="id_tipo_reclamo" value="2">
+                <div class="form-check mx-2">
+                    <label class="lrp-checkbox-container d-flex align-items-center " id="id_tipo_queja">
+                        <input type="radio" class="form-check-input d-none" name="id_tipo_reclamo" value="2">
                         Queja
                     </label>
                 </div>
@@ -152,28 +153,48 @@
             </div>
             <div class="form-group my-2">
                 <label class="custom-file">
-                    <input type="file" name="ruta_archivo" id="ruta_archivo" placeholder="Seleccionar Archivo" class="custom-file-input" aria-describedby="fileHelpId">
+                    <input type="file" name="ruta_archivo" id="ruta_archivo" placeholder="Seleccionar Archivo" class="custom-file-input" aria-describedby="fileHelpId" accept="image/png,image/jpeg">
                     <span class="custom-file-control"></span>
                 </label>
                 <small id="fileHelpId" class="form-text text-muted">jpg,jpeg y png de hasta 3MB</small>
             </div>
             @include('includes.extras.apoyo_queja')
         </div>
-        @include('includes.extras.informacion_minima_requerida')
+    </div>
 
-        <div class="row d-flex flex-column align-items-center my-4">
-            <div class="form-check my-1">
-                <label class="form-check-label">
-                    <input type="checkbox" class="form-check-input" name="terminos_condiciones" value="checkedValue" checked required>
-                    He leído y acepto la <a href=""><b class="lrp-color-primary">Politica de Tratamiento de Protección de Datos Personales</b></a>
-                </label>
-            </div>
-            <div class="my-2">
-                <button type="submit" class="lrp-btn lrp-btn-primary">Enviar</button>
-            </div>
+    @include('includes.extras.informacion_minima_requerida')
+
+    <div class="row d-flex flex-column align-items-center my-4">
+        <div class="form-check my-1">
+            <label class="form-check-label">
+                <input type="checkbox" class="form-check-input" name="terminos_condiciones" value="checkedValue" checked required>
+                He leído y acepto la <a href=""><b class="lrp-color-primary">Politica de Tratamiento de Protección de Datos Personales</b></a>
+            </label>
         </div>
-    </form>
+        <div class="my-4">
+            <button type="submit" class="lrp-btn lrp-btn-primary">Enviar</button>
+        </div>
+    </div>
+</form>
 
-    <hr class="lrp-hr-bar">
-</div>
+<hr class="lrp-hr-bar">
+@endsection
+
+@section("scripts")
+<script>
+    (() => {
+        
+        const toggleSelectCheckBoxReclamoQueja = (e) => {
+            if (e.target.id == "id_tipo_queja") {
+                e.target.classList.toggle("lrp-checkbox-container-hover");
+                document.querySelector("#id_tipo_reclamo").classList.remove("lrp-checkbox-container-hover");
+            } else if (e.target.id == "id_tipo_reclamo") {
+                e.target.classList.toggle("lrp-checkbox-container-hover")
+                document.querySelector("#id_tipo_queja").classList.remove("lrp-checkbox-container-hover");
+            }
+        }
+        document.addEventListener("click", toggleSelectCheckBoxReclamoQueja)
+        
+    })()
+</script>
 @endsection

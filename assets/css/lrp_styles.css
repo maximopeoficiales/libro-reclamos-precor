@@ -54,7 +54,6 @@
   color: var(--lrp-primary);
 }
 
-
 /* BOTTOM BARS ================================= */
 .lrp-bar {
   position: relative;
@@ -141,7 +140,6 @@
   color: var(--lrp-primary);
 }
 
-
 /* botones */
 
 .lrp-btn {
@@ -165,4 +163,20 @@
   width: 100%;
   margin-top: 100px;
   border-radius: 10%;
+}
+.lrp-checkbox-container {
+  cursor: pointer;
+  margin-top: 5px;
+  width: 100%;
+  margin-bottom: 5px;
+  height: 60px;
+  padding: 15px 52px;
+  border: 1px dashed #999;
+  border-radius: 100px;
+}
+
+.lrp-checkbox-container-hover {
+  background-color: var(--lrp-primary);
+  color: var(--lrp-green-white);
+  font-weight: bold;
 }
