@@ -2,6 +2,8 @@
 
 namespace IZNOPS;
 
+use IZNOP\Models\QuerysCustom;
+use IZNOP\Models\ReclamoComprobante;
 use IZNOP\Models\Users;
 
 class ShortcodeController
@@ -12,7 +14,10 @@ class ShortcodeController
 
         try {
             // $data = Users::get();
-            return view("reclamo.create",[]);
+            $comprobantes = ReclamoComprobante::get();
+            $ubigeos = QuerysCustom::getUbigeos();
+            // dd($ubigeos);
+            return view("reclamo.create", compact("comprobantes","ubigeos"));
         } catch (\Throwable $th) {
             echo $th;
         }

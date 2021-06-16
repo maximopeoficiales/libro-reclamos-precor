@@ -14,45 +14,64 @@ function lrp_show_message_custom($msg_success, $msg_act, $msg_error): void
 {
 
     if (isset($_GET['errors'])) {
-        echo '
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            <strong>' . lrp_transform_text_p($_GET['errors']) . '</strong>
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-            ';
+?>
+        <script>
+            document.addEventListener("DOMContentLoaded", function(event) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    html: '<?= lrp_transform_text_p($_GET['errors']) ?>'
+                });
+                Swal.fire({
+                    icon: "success",
+                    title: "Se Ha Actualizado Correctamente El " + tipo,
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            });
+        </script>
+        <?php
     }
     if (isset($_GET['msg'])) {
-
-
         if ($_GET['msg'] == '1') {
-            echo '
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                <strong>' . $msg_success . '</strong>
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-                ';
+        ?>
+            <script>
+                document.addEventListener("DOMContentLoaded", function(event) {
+                    Swal.fire({
+                        icon: "success",
+                        title: "<?= $msg_success ?>",
+                        // showConfirmButton: false,
+                        // timer: 1500
+                    })
+                });
+            </script>
+        <?php
         } else if ($_GET['msg'] == '2') {
-            echo '
-                <div class="alert alert-primary alert-dismissible fade show" role="alert">
-                <strong>' . $msg_act . '</strong>
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-                ';
+        ?>
+            <script>
+                document.addEventListener("DOMContentLoaded", function(event) {
+                    Swal.fire({
+                        icon: "success",
+                        title: "<?= $msg_act ?>",
+                        // showConfirmButton: false,
+                        // timer: 1500
+                    })
+                });
+            </script>
+        <?php
         } else {
-            echo '
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                <strong>' . $msg_error . '</strong>
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-                ';
+        ?>
+            <script>
+                document.addEventListener("DOMContentLoaded", function(event) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: "<?= $msg_error ?>",
+                        // showConfirmButton: false,
+                        // timer: 1500
+                    })
+                });
+            </script>
+<?php
         }
     }
 }
@@ -72,7 +91,7 @@ function lrp_set_action_name(string $nameAction): void
  * Imprime la url el archivo admin-post.php
  * @return void
  */
-function lrp_get_url_admin_post():void
+function lrp_get_url_admin_post(): void
 {
     echo admin_url('admin-post.php');
 }
@@ -196,4 +215,30 @@ function lrp_noAccess(): void
     echo "
         <h1 class='text-center'>No tienes acceso a esta pagina</h1>
     ";
+}
+
+
+/**
+ * Retorna la Fecha Actual Hora - Lima
+ * @return string
+ */
+function lrp_getFechaActual($his = false): string
+{
+    return $his ? date("Y-m-d H:i:s") : date("Y-m-d");
+}
+
+/**
+ * Retorna String desinfectado
+ * @return string
+ */
+function lrp_sanitize($text): string
+{
+    return sanitize_text_field($text);
+}
+
+function lrp_hash_file($file)
+{
+    $name = explode(".", $file["name"])[0];
+    $ext = pathinfo($file["name"], PATHINFO_EXTENSION);
+    return sanitize_title($name . " " . lrp_getFechaActual(true)) . ".$ext";
 }

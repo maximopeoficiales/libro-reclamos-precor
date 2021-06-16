@@ -1,9 +1,10 @@
 <?php
 
 
-use Illuminate\Database\Capsule\Manager as DatabaseOrm;
+use Illuminate\Database\Capsule\Manager as Capsule;
 
-$database = new DatabaseOrm;
+global $wpdb;
+$database = new Capsule();
 $database->addConnection([
     'driver'    => 'mysql',
     'host'      => DB_HOST,
@@ -11,6 +12,7 @@ $database->addConnection([
     'username'  => DB_USER,
     'password'  => DB_PASSWORD,
     'charset'   => DB_CHARSET,
+    'prefix'    => $wpdb->prefix,
     // 'collation' => DB_COLLATE,
 ]);
 
