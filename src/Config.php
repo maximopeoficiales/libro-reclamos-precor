@@ -48,7 +48,9 @@ class Config
      * @example ['body_class','IZNOPS::function',10,2]
      * @example ['body_class',['IZNOPS','function'],10,2]
      */
-    public $add_action = [];
+    public $add_action = [
+        ['admin_post_process_form', [__NAMESPACE__ . '\PostController', 'initializer']],
+    ];
     /**
      * add custom shortcodes
      * @input array

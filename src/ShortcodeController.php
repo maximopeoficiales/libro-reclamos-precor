@@ -12,7 +12,6 @@ class ShortcodeController
 
         try {
             // $data = Users::get();
-            
             return view("reclamo.create",[]);
         } catch (\Throwable $th) {
             echo $th;

@@ -66,6 +66,16 @@ function lrp_set_action_name(string $nameAction): void
     echo '
     <input type="hidden" name="action_name" value="' . $nameAction . '">';
 }
+
+
+/**
+ * Imprime la url el archivo admin-post.php
+ * @return void
+ */
+function lrp_get_url_admin_post():void
+{
+    echo admin_url('admin-post.php');
+}
 /**
  * Crea un input hidden procces_form para que sea procesado
  * @return void
