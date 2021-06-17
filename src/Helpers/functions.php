@@ -236,6 +236,10 @@ function lrp_sanitize($text): string
     return sanitize_text_field($text);
 }
 
+/**
+ * Retorna un String formateado como slug  mas la fecha actual
+ * @return string
+ */
 function lrp_hash_file($file)
 {
     $name = explode(".", $file["name"])[0];

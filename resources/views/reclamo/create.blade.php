@@ -15,7 +15,7 @@
 
             <h5>Código Cliente (Opcional)</h5>
             <div class="lrp-group">
-                <input type="text" name="cod_cli" id="cod_cli" aria-describedby="helpId" placeholder="Ingresa tu Código de Cliente">
+                <input type="number" name="cod_cli" id="cod_cli" aria-describedby="helpId" placeholder="Ingresa tu Código de Cliente">
                 <label for="cod_cli">Código de Cliente</label>
                 <span class="lrp-highlight"></span>
                 <span class="lrp-bar"></span>
@@ -37,13 +37,13 @@
             </div>
 
             <div class="lrp-group">
-                <input type="text" name="nrdoc" id="nrdoc" placeholder="RUC" maxlength="25">
+                <input type="number" name="nrdoc" id="nrdoc" placeholder="RUC">
                 <span class="lrp-highlight"></span>
                 <span class="lrp-bar"></span>
                 <label for="documento">RUC</label>
             </div>
             <div class="lrp-group">
-                <input type="tel" name="celular" id="celular" required placeholder="Telefono Celular*">
+                <input type="number" name="celular" id="celular" required placeholder="Telefono Celular*" max="999999999" ">
                 <span class="lrp-highlight"></span>
                 <span class="lrp-bar"></span>
                 <label for="celular">Telefono Celular*</label>
@@ -63,7 +63,7 @@
             </div>
 
             <div class="form-group">
-                <label for="id_ubigeo"></label>
+                <label for="id_ubigeo" class="lrp-color-primary">Seleccione su Ubigeo</label>
                 <select name="id_ubigeo" id="id_ubigeo" class="w-100">
                     {{-- <option value="">Departamento/Provincia/Distrito</option> --}}
                     @foreach ($ubigeos as $ubigeo)
@@ -103,13 +103,14 @@
                 </div>
 
                 <div class="lrp-group">
-                    <input type="number" min="1" name="comprobante" id="comprobante" placeholder="Ingresa el Número de Comprobante">
+                    <input type="tel" maxlength="25" name="comprobante" id="comprobante" placeholder="Ingresa el Número de Comprobante">
                     <span class="lrp-highlight"></span>
                     <span class="lrp-bar"></span>
                     <label for="comprobante">Número de Comprobante</label>
                 </div>
 
                 <div class="form-group">
+                    <label for="fecha" class="lrp-color-primary">Fecha Compra*</label>
                     <input type="date" name="fecha" id="fecha" class="form-control" placeholder="Fecha de Compra*" required>
                 </div>
 
@@ -140,13 +141,13 @@
             <div class="d-flex justify-content-around">
                 <div class="form-check mx-2">
                     <label class="lrp-checkbox-container d-flex align-items-center" id="id_tipo_reclamo">
-                        <input type="radio" class="form-check-input d-none" name="id_tipo_reclamacion" value="1" required>
+                        <input type="radio" class="form-check-input " name="id_tipo_reclamacion" value="1" required>
                         Reclamo
                     </label>
                 </div>
                 <div class="form-check mx-2">
                     <label class="lrp-checkbox-container d-flex align-items-center " id="id_tipo_queja">
-                        <input type="radio" class="form-check-input d-none" name="id_tipo_reclamacion" value="2" required>
+                        <input type="radio" class="form-check-input " name="id_tipo_reclamacion" value="2" required>
                         Queja
                     </label>
                 </div>

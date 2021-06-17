@@ -11,3 +11,12 @@ function path($path = ""): string
     return plugin_dir_path(dirname(dirname(__FILE__))) . $path;
 }
 
+function getPathUploadsReclamo()
+{
+    return wp_get_upload_dir()["basedir"] . "/reclamo/";
+}
+
+function getAssetUploadsReclamo()
+{
+    return wp_get_upload_dir()["baseurl"] . "/reclamo/";
+}

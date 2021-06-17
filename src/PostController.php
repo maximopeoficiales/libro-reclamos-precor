@@ -5,6 +5,7 @@ namespace IZNOPS;
 use IZNOP\Models\Reclamo;
 use IZNOPS\Enums\ActionName;
 use IZNOPS\Enums\RoutesReclamo;
+use IZNOPS\Uploader\Uploader;
 use IZNOPS\Validator\ReclamoValidator;
 use IZNOPS\Validator\Validator;
 
@@ -34,7 +35,10 @@ class PostController
                 // dd(lrp_hash_file($_FILES["ruta_archivo"]));
                 // es valido los parametros
                 // dd($_POST + $_FILES);
-                $ruta = RoutesReclamo::registrar;
+                // dd(wp_get_upload_dir());
+                $newFileName = Uploader::uploadFileInReclamo($_FILES["ruta_archivo"]);
+                // dd($newFileName);
+                $page = RoutesReclamo::registrar;
                 $reclamo = new Reclamo();
 
                 $reclamo->id_cli = lrp_sanitize($_POST["cod_cli"]);
@@ -49,21 +53,17 @@ class PostController
                 $reclamo->relacionado =  lrp_sanitize($_POST["relacionado"]);
                 $reclamo->id_tipo_comprobante =  lrp_sanitize($_POST["id_tipo_comprobante"]);
                 $reclamo->comprobante =  lrp_sanitize($_POST["comprobante"]);
-
                 $reclamo->fecha =  lrp_sanitize($_POST["fecha"]);
-
                 $reclamo->ejecutivo =  lrp_sanitize($_POST["ejecutivo"]);
                 $reclamo->descripcion =  lrp_sanitize($_POST["descripcion"]);
                 $reclamo->id_tipo_reclamacion =  lrp_sanitize($_POST["id_tipo_reclamacion"]);
-
                 $reclamo->detalle =  lrp_sanitize($_POST["detalle"]);
-
-                $reclamo->ruta_archivo =  lrp_hash_file($_FILES["ruta_archivo"]);
+                $reclamo->ruta_archivo =  $newFileName;
                 $reclamo->id_estado =  1;
                 $reclamo->created_at =  lrp_getFechaActual(true);
-
                 $reclamo->save();
-                wp_redirect(home_url("/$ruta/") . "?msg=" . 1);
+
+                lrp_redirect_create($page);
             } else {
                 // no es valido
                 lrp_redirect(RoutesReclamo::registrar, $responseValidator["errors"]);
