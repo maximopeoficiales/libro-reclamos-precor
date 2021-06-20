@@ -30,7 +30,7 @@ class ShortcodeController
         try {
             $reclamos = [];
             $id_reclamo = $_GET["id_reclamo"];
-            $id_cli = $_GET["id_cli"];
+            $id_cli = $_GET["id_cli"] == "#" ? null : $_GET["id_cli"];
             if (is_null($_GET["id_reclamo"]) && is_null($_GET["id_cli"])) {
                 $reclamos = Reclamo::getReclamos();
             }
