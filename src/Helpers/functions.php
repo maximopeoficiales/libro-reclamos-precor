@@ -246,3 +246,30 @@ function lrp_hash_file($file)
     $ext = pathinfo($file["name"], PATHINFO_EXTENSION);
     return sanitize_title($name . " " . lrp_getFechaActual(true)) . ".$ext";
 }
+
+/**
+ * Obtiene color de un estado dependiendo el estado
+ * @return string
+ */
+function lrp_get_color_by_status($status)
+{
+    $prefix = "lrp_";
+    $color = "";
+    $status = strtolower($status);
+    if (str_contains($status, "sin respuesta")) {
+        $color = $prefix . "orange";
+    }
+    if (str_contains($status, "rechazado")) {
+        $color = $prefix . "red";
+    }
+    if (str_contains($status, "aceptado")) {
+        $color = $prefix . "green";
+    }
+    if (str_contains($status, "aplazado")) {
+        $color = $prefix . "blue";
+    }
+    if (str_contains($status, "finalizado sin respuesta")) {
+        $color = $prefix . "pink";
+    }
+    return $color;
+}

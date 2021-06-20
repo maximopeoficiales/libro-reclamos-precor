@@ -22,6 +22,24 @@
 .font-weight-bold {
   font-weight: bold;
 }
+/* lrp_color */
+.lrp_orange {
+  color: #d28f4d;
+}
+.lrp_red {
+  color: #e54c52;
+}
+.lrp_green {
+  color: #5dc064;
+}
+
+.lrp_blue {
+  color: #535bb7;
+}
+.lrp_pink {
+  color: #c96ecb;
+}
+
 /* form starting stylings ------------------------------- */
 .lrp-group {
   position: relative;
@@ -209,5 +227,4 @@
 }
 .dataTables_filter label {
   text-align: left;
-
 }

@@ -65,7 +65,7 @@ wp_enqueue_style('lrp_styles', asset('css/lrp_styles.css'), '', '1.0.0');
                         <tr>
                             <td scope="row" class="text-center font-weight-bold"><?php echo e($reclamo->codigo); ?></td>
                             <td class="text-center"><?php echo e($reclamo->fecha); ?></td>
-                            <td class="text-center"><?php echo e($reclamo->estado); ?></td>
+                            <td class="font-weight-bold text-center <?php echo e(lrp_get_color_by_status($reclamo->estado)); ?>"><?php echo e($reclamo->estado); ?></td>
                             <td class="text-center">
                                 <a href="#<?php echo e($reclamo->id_reclamo); ?>" class="font-weight-bold">
                                     Ver más
