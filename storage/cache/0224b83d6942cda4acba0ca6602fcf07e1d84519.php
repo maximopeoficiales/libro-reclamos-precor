@@ -63,7 +63,7 @@ wp_enqueue_style('lrp_styles', asset('css/lrp_styles.css'), '', '1.0.0');
                 <tbody>
                     <?php $__currentLoopData = $reclamos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $reclamo): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <tr>
-                            <td scope="row" class="text-center"><?php echo e($reclamo->codigo); ?></td>
+                            <td scope="row" class="text-center font-weight-bold"><?php echo e($reclamo->codigo); ?></td>
                             <td class="text-center"><?php echo e($reclamo->fecha); ?></td>
                             <td class="text-center"><?php echo e($reclamo->estado); ?></td>
                             <td class="text-center">
@@ -85,15 +85,14 @@ wp_enqueue_style('lrp_styles', asset('css/lrp_styles.css'), '', '1.0.0');
     // existen reclamos
     <?php if(count($reclamos) > 0): ?>
         document.addEventListener("DOMContentLoaded", function(event) {
-        console.log("holaaaaaaa");
-        <?php echo e(lrp_datatables_in_spanish()); ?>
+            <?php echo e(lrp_datatables_in_spanish()); ?>
 
-        $('#table-reclamos').DataTable({
-        rowReorder: {
-        selector: 'td:nth-child(2)'
-        },
-        responsive: true
-        });
+            $('#table-reclamos').DataTable({
+                rowReorder: {
+                selector: 'td:nth-child(2)'
+                },
+                responsive: true
+            });
         });
     
     <?php endif; ?>

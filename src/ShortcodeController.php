@@ -28,12 +28,22 @@ class ShortcodeController
     {
 
         try {
-            // $data = Users::get();
-            $reclamos = Reclamo::getReclamos();
-            // $ubigeos = QuerysCustom::getUbigeos();
-            // dd($ubigeos);
-            // return view("reclamo.list", compact());
+            $reclamos = [];
+            $id_reclamo = $_GET["id_reclamo"];
+            $id_cli = $_GET["id_cli"];
+            if (is_null($_GET["id_reclamo"]) && is_null($_GET["id_cli"])) {
+                $reclamos = Reclamo::getReclamos();
+            }
+            if (!is_null($id_reclamo) && is_null($id_cli)) {
+                $reclamos = Reclamo::getReclamos($id_reclamo);
+            }
 
+            if (is_null($id_reclamo) && !is_null($id_cli)) {
+                $reclamos = Reclamo::getReclamos(null,$id_cli);
+            }
+            if (!is_null($id_reclamo) && !is_null($id_cli)) {
+                $reclamos = Reclamo::getReclamos($id_reclamo, $id_cli);
+            }
             return view("reclamo.list", compact("reclamos"));
         } catch (\Throwable $th) {
             echo $th;

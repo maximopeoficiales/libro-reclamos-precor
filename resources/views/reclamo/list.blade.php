@@ -63,7 +63,7 @@ wp_enqueue_style('lrp_styles', asset('css/lrp_styles.css'), '', '1.0.0');
                 <tbody>
                     @foreach ($reclamos as $reclamo)
                         <tr>
-                            <td scope="row" class="text-center">{{ $reclamo->codigo }}</td>
+                            <td scope="row" class="text-center font-weight-bold">{{ $reclamo->codigo }}</td>
                             <td class="text-center">{{ $reclamo->fecha }}</td>
                             <td class="text-center">{{ $reclamo->estado }}</td>
                             <td class="text-center">
@@ -85,14 +85,13 @@ wp_enqueue_style('lrp_styles', asset('css/lrp_styles.css'), '', '1.0.0');
     // existen reclamos
     @if (count($reclamos) > 0)
         document.addEventListener("DOMContentLoaded", function(event) {
-        console.log("holaaaaaaa");
-        {{ lrp_datatables_in_spanish() }}
-        $('#table-reclamos').DataTable({
-        rowReorder: {
-        selector: 'td:nth-child(2)'
-        },
-        responsive: true
-        });
+            {{ lrp_datatables_in_spanish() }}
+            $('#table-reclamos').DataTable({
+                rowReorder: {
+                selector: 'td:nth-child(2)'
+                },
+                responsive: true
+            });
         });
     
     @endif
