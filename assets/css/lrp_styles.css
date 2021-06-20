@@ -10,6 +10,18 @@
   width: 100%;
   background: #fff;
 } */
+.text-center {
+  text-align: center;
+}
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+.font-weight-bold {
+  font-weight: bold;
+}
 /* form starting stylings ------------------------------- */
 .lrp-group {
   position: relative;
@@ -53,7 +65,6 @@
   font-size: 14px;
   color: var(--lrp-primary);
 }
-
 
 /* BOTTOM BARS ================================= */
 .lrp-bar {
@@ -153,6 +164,11 @@
   background-color: var(--lrp-primary);
   color: var(--lrp-white);
 }
+.lrp-btn-primary-rounded {
+  background-color: var(--lrp-primary);
+  color: var(--lrp-white);
+  border-radius: 12px;
+}
 .lrp-btn-lg {
   width: 250px;
 }
@@ -181,4 +197,17 @@
   color: var(--lrp-green-white);
   font-weight: bold;
 }
+/* datatables */
+.dataTables_length label {
+  display: flex;
+  align-items: center;
+}
+.dataTables_length select {
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 10px;
+}
+.dataTables_filter label {
+  text-align: left;
 
+}

@@ -58,6 +58,7 @@ class Config
      */
     public $shortcodes = [
         ['lrp_registrar_reclamo', [__NAMESPACE__ . '\ShortcodeController', 'registrarReclamo']],
+        ['lrp_listar_reclamo', [__NAMESPACE__ . '\ShortcodeController', 'listarReclamos']],
     ];
     /**
      * add Gutenberg's blocks
