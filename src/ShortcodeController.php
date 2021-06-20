@@ -29,8 +29,9 @@ class ShortcodeController
 
         try {
             $reclamos = [];
-            $id_reclamo = $_GET["id_reclamo"];
-            $id_cli = $_GET["id_cli"] == "#" ? null : $_GET["id_cli"];
+            $id_reclamo = $_GET["id_reclamo"] == "" ? null : $_GET["id_reclamo"];
+            $id_cli = $_GET["id_cli"] == "" ? null : $_GET["id_cli"];
+            
             if (is_null($_GET["id_reclamo"]) && is_null($_GET["id_cli"])) {
                 $reclamos = Reclamo::getReclamos();
             }
@@ -39,7 +40,7 @@ class ShortcodeController
             }
 
             if (is_null($id_reclamo) && !is_null($id_cli)) {
-                $reclamos = Reclamo::getReclamos(null,$id_cli);
+                $reclamos = Reclamo::getReclamos(null, $id_cli);
             }
             if (!is_null($id_reclamo) && !is_null($id_cli)) {
                 $reclamos = Reclamo::getReclamos($id_reclamo, $id_cli);
