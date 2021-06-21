@@ -229,6 +229,6 @@
   text-align: left;
 }
 /* input cel */
-.iti {
+.iti .iti--allow-dropdown {
   width: 100%;
 }

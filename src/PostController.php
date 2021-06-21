@@ -54,6 +54,7 @@ class PostController
                 $reclamo->id_tipo_comprobante =  lrp_sanitize($_POST["id_tipo_comprobante"]);
                 $reclamo->comprobante =  lrp_sanitize($_POST["comprobante"]);
                 $reclamo->fecha =  lrp_sanitize($_POST["fecha"]);
+                $reclamo->monto_reclamado =  lrp_sanitize($_POST["monto_reclamado"]);
                 $reclamo->ejecutivo =  lrp_sanitize($_POST["ejecutivo"]);
                 $reclamo->descripcion =  lrp_sanitize($_POST["descripcion"]);
                 $reclamo->id_tipo_reclamacion =  lrp_sanitize($_POST["id_tipo_reclamacion"]);

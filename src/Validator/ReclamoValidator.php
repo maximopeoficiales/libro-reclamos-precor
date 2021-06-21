@@ -18,7 +18,7 @@ abstract class ReclamoValidator
         'id_tipo_comprobante'                  => "numeric",
         'comprobante'                  => 'numeric|digits_between:1,25',
         'fecha'                  => 'required|date:Y-m-d',
-        // 'ejecutivo'                  => 'max:50',
+        'monto_reclamado'                  => 'numeric',
         'ejecutivo'                  => 'max:50',
         'descripcion'                  => 'required|max:1000',
         'id_tipo_reclamacion'                  => 'required|numeric|max:2|min:1',
