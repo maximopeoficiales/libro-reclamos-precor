@@ -16,7 +16,7 @@
 
 
 
-    wp_enqueue_style("lrp_styles", asset("css/lrp_styles.css"), '', '1.0.1');
+    wp_enqueue_style("lrp_styles", asset("css/lrp_styles.css"), '', '1.0.2');
 @endphp
 <div>
     @yield('content')
