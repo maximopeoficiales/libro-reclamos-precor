@@ -228,3 +228,7 @@
 .dataTables_filter label {
   text-align: left;
 }
+/* input cel */
+.iti {
+  width: 100%;
+}

@@ -43,11 +43,11 @@
                 <span class="lrp-bar"></span>
                 <label for="documento">RUC</label>
             </div>
-            <div class="lrp-group">
-                <input type="number" name="celular" id="celular" required placeholder="Telefono Celular*" max="999999999" ">
-                <span class="lrp-highlight"></span>
-                <span class="lrp-bar"></span>
+            <div class="form-group">
                 <label for="celular">Telefono Celular*</label>
+                <input type="text" name="celular" id="celular" required placeholder="Telefono Celular*" class="form-control" style="width: 100%;">
+                
+                
             </div>
             <div class="lrp-group">
                 <input type="email" name="correo" id="correo" required placeholder="Correo*" maxlength="80">
@@ -208,6 +208,11 @@
     window.onload = () => {
         $("#id_ubigeo").select2();
         $("#id_tipo_comprobante").select2();
+        var phoneInputField = document.querySelector("#celular");
+        var phoneInput = window.intlTelInput(phoneInputField, {
+            preferredCountries: ["pe"],
+            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+        });
     }
 </script>
 <?php $__env->stopSection(); ?>

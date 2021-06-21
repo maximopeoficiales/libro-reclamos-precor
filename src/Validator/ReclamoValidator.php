@@ -9,7 +9,7 @@ abstract class ReclamoValidator
         'nombre'                  => 'required|max:50',
         'documento'                  => 'required|digits_between:1,25',
         'nrdoc'                  => 'max:25',
-        'celular'                  => 'required|numeric|digits_between:1,9',
+        'celular'                  => 'required|max:15',
         'correo'                  => 'max:80',
         'direccion'                  => 'max:150',
         'id_ubigeo'                  => 'numeric',
