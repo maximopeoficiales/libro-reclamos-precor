@@ -1,9 +1,10 @@
 :root {
   --lrp-primary: #60ad29;
-  --lrp-mini-primary: #D8F7BC;
-  --lrp-green-mini: #67A833;
+  --lrp-mini-primary: #d8f7bc;
+  --lrp-green-mini: #67a833;
   --lrp-white: #ffffff;
   --lrp-green-white: #f9fff3;
+  --lrp-text-gray: #979ea8;
 }
 /* global */
 
@@ -41,7 +42,9 @@
 .lrp_pink {
   color: #c96ecb;
 }
-
+.lrp-text-gray {
+  color: var(--lrp-text-gray);
+}
 /* form starting stylings ------------------------------- */
 .lrp-group {
   position: relative;
@@ -188,7 +191,7 @@
   width: 125px;
   border-radius: 12px;
 }
-.lrp-btn-mini-primary{
+.lrp-btn-mini-primary {
   background-color: var(--lrp-mini-primary);
   /* color: var(--lrp-green-mini); */
 }
@@ -247,4 +250,11 @@
 /* input cel */
 .iti .iti--allow-dropdown {
   width: 100% !important;
+}
+/* boton datatable */
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+  border-radius: 20px !important;
+  background: var(--lrp-primary) !important;
+  color: var(--lrp-white) !important;
+  font-weight: bold;
 }

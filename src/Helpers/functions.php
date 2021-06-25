@@ -158,7 +158,15 @@ function lrp_datatables_in_spanish(): void
             "print": "Imprimir",
             "colvis": "Visibilidad columnas",
             "collection": "Colección",
-            "upload": "Seleccione fichero...."
+            "upload": "Seleccione fichero....",
+            "dom": {
+                button: {
+                     className: "btn btn-primary"
+                },
+                buttonLiner: {
+                     tag: null
+                }
+               }
         },
         "select": {
             "rows": {

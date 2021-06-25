@@ -54,10 +54,10 @@ wp_enqueue_style('lrp_styles', asset('css/lrp_styles.css'), '', '1.0.0');
             <table class=" display  nowrap p-2" style="width: 100% !important; " id="table-reclamos">
                 <thead class="">
                     <tr>
-                        <th class="text-center">#</th>
-                        <th class="text-center">Fecha de Creacion</th>
-                        <th class="text-center">Status</th>
-                        <th class="text-center">Acciones</th>
+                        <th class="text-center lrp-text-gray">#</th>
+                        <th class="text-center lrp-text-gray">Fecha de Creacion</th>
+                        <th class="text-center lrp-text-gray">Status</th>
+                        <th class="text-center lrp-text-gray">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>

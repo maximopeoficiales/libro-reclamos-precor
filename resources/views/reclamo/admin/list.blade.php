@@ -53,11 +53,11 @@ wp_enqueue_style('lrp_styles', asset('css/lrp_styles.css'), '', '1.0.0');
         <table class=" display  responsive nowrap p-2" style="width: 100% !important; " id="table-admin-reclamos">
             <thead class="">
                 <tr>
-                    <th class="text-center">Codigo</th>
-                    <th class="text-center">Fecha</th>
-                    <th class="text-center">Estado</th>
-                    <th class="text-center">Vencimiento</th>
-                    <th class="text-center">Acciones</th>
+                    <th class="text-center lrp-text-gray">Codigo</th>
+                    <th class="text-center lrp-text-gray">Fecha</th>
+                    <th class="text-center lrp-text-gray">Estado</th>
+                    <th class="text-center lrp-text-gray">Vencimiento</th>
+                    <th class="text-center lrp-text-gray">Acciones</th>
                 </tr>
             </thead>
             <tbody>
