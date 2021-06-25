@@ -1,5 +1,7 @@
 :root {
   --lrp-primary: #60ad29;
+  --lrp-mini-primary: #D8F7BC;
+  --lrp-green-mini: #67A833;
   --lrp-white: #ffffff;
   --lrp-green-white: #f9fff3;
 }
@@ -167,7 +169,7 @@
   color: var(--lrp-white);
 }
 .lrp-color-primary {
-  color: var(--lrp-primary);
+  color: var(--lrp-primary) !important;
 }
 
 /* botones */
@@ -178,10 +180,24 @@
   font-weight: bold;
   width: 200px;
 }
+/* boton para el listado */
+.lrp-btn-mini {
+  cursor: pointer;
+  padding: 10px;
+  font-weight: bold;
+  width: 125px;
+  border-radius: 12px;
+}
+.lrp-btn-mini-primary{
+  background-color: var(--lrp-mini-primary);
+  /* color: var(--lrp-green-mini); */
+}
+
 .lrp-btn-primary {
   background-color: var(--lrp-primary);
   color: var(--lrp-white);
 }
+
 .lrp-btn-primary-rounded {
   background-color: var(--lrp-primary);
   color: var(--lrp-white);

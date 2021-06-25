@@ -87,6 +87,8 @@ wp_enqueue_style('lrp_styles', asset('css/lrp_styles.css'), '', '1.0.0');
         document.addEventListener("DOMContentLoaded", function(event) {
             {{ lrp_datatables_in_spanish() }}
             $('#table-reclamos').DataTable({
+                order: [[1, "desc" ]],
+                pageLength: 20,
                 rowReorder: {
                 selector: 'td:nth-child(2)'
                 },

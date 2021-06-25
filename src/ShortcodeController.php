@@ -31,7 +31,7 @@ class ShortcodeController
             $reclamos = [];
             $id_reclamo = $_GET["id_reclamo"] == "" ? null : $_GET["id_reclamo"];
             $id_cli = $_GET["id_cli"] == "" ? null : $_GET["id_cli"];
-            
+
             if (is_null($_GET["id_reclamo"]) && is_null($_GET["id_cli"])) {
                 $reclamos = Reclamo::getReclamos();
             }
@@ -46,6 +46,19 @@ class ShortcodeController
                 $reclamos = Reclamo::getReclamos($id_reclamo, $id_cli);
             }
             return view("reclamo.list", compact("reclamos"));
+        } catch (\Throwable $th) {
+            echo $th;
+        }
+    }
+    public function adminListarReclamos($atts)
+    {
+        try {
+            $reclamos = [];
+            $id_reclamo = $_GET["id_reclamo"] == "" ? null : $_GET["id_reclamo"];
+            $id_cli = $_GET["id_cli"] == "" ? null : $_GET["id_cli"];
+            $reclamos = Reclamo::getAdminReclamos();
+
+            return view("reclamo.admin.list", compact("reclamos"));
         } catch (\Throwable $th) {
             echo $th;
         }
