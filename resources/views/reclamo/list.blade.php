@@ -26,7 +26,7 @@ wp_enqueue_style('lrp_styles', asset('css/lrp_styles.css'), '', '1.0.0');
                 <div class="lrp-group">
                     <input type="number" name="id_reclamo" id="id_reclamo" aria-describedby="helpId"
                         placeholder="Ingresa el Código de tu Reclamo">
-                    <label for="cod_cli">Código de Reclamo</label>
+                    <label for="id_reclamo">Código de Reclamo</label>
                     <span class="lrp-highlight"></span>
                     <span class="lrp-bar"></span>
                 </div>

@@ -37,14 +37,6 @@ class Reclamo extends Model
     public static function getAdminReclamos()
     {
         global $wpdb;
-        /* select t1.id as id_tipocomprobante, concat('#', right(concat('0000000',t1.id),7)) as Codigo,
-        date(t1.created_at) as Fecha, t2.descripcion as Estado,
-        case when t1.id_estado in (1,2,5,8) then 
-        concat('Vence en ',datediff(now(), t1.updated_at),' días') end as Vencimiento, 
-        t3.descripcion as 'Tipo comprobante', t1.Comprobante, t1.Documento
-        from wp_reclamo t1
-        inner join wp_reclamo_estado t2 on t2.id = t1.id_estado
-        inner join wp_reclamo_comprobante t3 on t3.id = t1.id */
 
         return Manager::table("reclamo AS t1")
             ->selectRaw("{$wpdb->prefix}t1.id as id_reclamo,

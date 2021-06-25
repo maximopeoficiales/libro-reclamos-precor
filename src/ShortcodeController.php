@@ -5,6 +5,7 @@ namespace IZNOPS;
 use IZNOP\Models\QuerysCustom;
 use IZNOP\Models\Reclamo;
 use IZNOP\Models\ReclamoComprobante;
+use IZNOP\Models\ReclamoEstado;
 use IZNOP\Models\Users;
 
 class ShortcodeController
@@ -54,11 +55,13 @@ class ShortcodeController
     {
         try {
             $reclamos = [];
-            $id_reclamo = $_GET["id_reclamo"] == "" ? null : $_GET["id_reclamo"];
-            $id_cli = $_GET["id_cli"] == "" ? null : $_GET["id_cli"];
+            // $id_reclamo = $_GET["id_reclamo"] == "" ? null : $_GET["id_reclamo"];
+            // $id_cli = $_GET["id_cli"] == "" ? null : $_GET["id_cli"];
             $reclamos = Reclamo::getAdminReclamos();
+            $comprobantes = ReclamoComprobante::get();
+            $estados = ReclamoEstado::get();
 
-            return view("reclamo.admin.list", compact("reclamos"));
+            return view("reclamo.admin.list", compact("reclamos", "comprobantes", "estados"));
         } catch (\Throwable $th) {
             echo $th;
         }
