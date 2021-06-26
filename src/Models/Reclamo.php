@@ -9,30 +9,27 @@ class Reclamo extends Model
 {
     protected $table = "reclamo";
 
-    public static function getReclamos($id_reclamo = null, $id_cli = null)
+    public static function getReclamos($atts)
     {
         global $wpdb;
+        $id_reclamo = $atts["id_reclamo"];
+        $id_cli = $atts["id_cli"];
         $query = Manager::table("reclamo AS t1")
             ->selectRaw("{$wpdb->prefix}t1.id as id_reclamo,CONCAT('#',RIGHT(CONCAT('0000000',{$wpdb->prefix}t1.id),7)) as codigo,
             DATE_FORMAT(DATE({$wpdb->prefix}t1.created_at),'%d/%m/%Y') as fecha,
         {$wpdb->prefix}t2.descripcion as estado
         ")
-            ->orderByDesc("t1.created_at")
-            ->join("reclamo_estado as t2", "t2.id", "=", "t1.id_estado");
-        if (is_null($id_reclamo) && is_null($id_cli)) {
-            return $query->get();
-        }
-        if (!is_null($id_reclamo) && is_null($id_cli)) {
-            return $query->where("t1.id", "=", $id_reclamo)->get();
+            ->join("reclamo_estado as t2", "t2.id", "=", "t1.id_estado")
+            ->orderByDesc("t1.created_at");
+
+        if ($id_reclamo != "" && !is_null($id_reclamo)) {
+            $query->where("t1.id", "=", $id_reclamo);
         }
 
-        if (is_null($id_reclamo) && !is_null($id_cli)) {
-            return $query->where("t1.id_cli", "=", $id_cli)->get();
+        if ($id_cli != "" && !is_null($id_cli)) {
+            $query->where("t1.id_cli", "=", $id_cli);
         }
-        if (!is_null($id_reclamo) && !is_null($id_cli)) {
-            return $query->where("t1.id_cli", "=", $id_cli)
-                ->where("t1.id", "=", $id_reclamo)->get();
-        }
+        return $query->get();
     }
     public static function getAdminReclamos($params = [])
     {

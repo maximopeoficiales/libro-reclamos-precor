@@ -29,23 +29,7 @@ class ShortcodeController
     {
 
         try {
-            $reclamos = [];
-            $id_reclamo = $_GET["id_reclamo"] == "" ? null : $_GET["id_reclamo"];
-            $id_cli = $_GET["id_cli"] == "" ? null : $_GET["id_cli"];
-
-            if (is_null($_GET["id_reclamo"]) && is_null($_GET["id_cli"])) {
-                $reclamos = Reclamo::getReclamos();
-            }
-            if (!is_null($id_reclamo) && is_null($id_cli)) {
-                $reclamos = Reclamo::getReclamos($id_reclamo);
-            }
-
-            if (is_null($id_reclamo) && !is_null($id_cli)) {
-                $reclamos = Reclamo::getReclamos(null, $id_cli);
-            }
-            if (!is_null($id_reclamo) && !is_null($id_cli)) {
-                $reclamos = Reclamo::getReclamos($id_reclamo, $id_cli);
-            }
+            $reclamos = Reclamo::getReclamos($_GET);
             return view("reclamo.list", compact("reclamos"));
         } catch (\Throwable $th) {
             echo $th;
@@ -54,9 +38,6 @@ class ShortcodeController
     public function adminListarReclamos($atts)
     {
         try {
-            $reclamos = [];
-
-
             $reclamos = Reclamo::getAdminReclamos($_GET);
             $comprobantes = ReclamoComprobante::get();
             $estados = ReclamoEstado::get();
