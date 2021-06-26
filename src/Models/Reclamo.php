@@ -61,7 +61,7 @@ class Reclamo extends Model
         }
 
         if ($params["fecha_reclamo"] != "" && !is_null($params["fecha_reclamo"])) {
-            $query->where("t1.created_at", "=", $params["fecha_reclamo"]);
+            $query->whereRaw("DATE_FORMAT({$wpdb->prefix}t1.created_at,'%Y-%m-%d') = '{$params["fecha_reclamo"]}'");
         }
 
         if ($params["id_estado"] != "" && !is_null($params["id_estado"])) {
