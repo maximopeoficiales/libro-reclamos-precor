@@ -55,9 +55,9 @@ class ShortcodeController
     {
         try {
             $reclamos = [];
-            // $id_reclamo = $_GET["id_reclamo"] == "" ? null : $_GET["id_reclamo"];
-            // $id_cli = $_GET["id_cli"] == "" ? null : $_GET["id_cli"];
-            $reclamos = Reclamo::getAdminReclamos();
+
+
+            $reclamos = Reclamo::getAdminReclamos($_GET);
             $comprobantes = ReclamoComprobante::get();
             $estados = ReclamoEstado::get();
 
