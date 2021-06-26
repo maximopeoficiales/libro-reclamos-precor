@@ -41,7 +41,7 @@ class ShortcodeController
             $reclamos = Reclamo::getAdminReclamos($_GET);
             $comprobantes = ReclamoComprobante::get();
             $estados = ReclamoEstado::get();
-            dd($reclamos);
+            // dd($reclamos);
             return view("reclamo.admin.list", compact("reclamos", "comprobantes", "estados"));
         } catch (\Throwable $th) {
             echo $th;
