@@ -5,6 +5,7 @@
   --lrp-white: #ffffff;
   --lrp-green-white: #f9fff3;
   --lrp-text-gray: #979ea8;
+  --lrp-text-gray-secondary: #D9DCE4;
 }
 /* global */
 
@@ -13,7 +14,9 @@
   width: 100%;
   background: #fff;
 } */
-
+.w-100{
+  width: 100% !important;
+}
 .text-white {
   color: var(--lrp-white);
 }
@@ -65,6 +68,9 @@
 }
 .lrp-text-gray {
   color: var(--lrp-text-gray);
+}
+.lrp-text-gray-secondary {
+  color: var(--lrp-text-gray-secondary);
 }
 /* form starting stylings ------------------------------- */
 .lrp-group {
