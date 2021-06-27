@@ -261,7 +261,7 @@ function lrp_hash_file($file)
  */
 function lrp_get_color_by_status($status)
 {
-    $prefix = "lrp_";
+    $prefix = "lrp-";
     $color = "";
     $status = strtolower($status);
     if (str_contains($status, "sin respuesta")) {

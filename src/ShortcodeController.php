@@ -47,4 +47,18 @@ class ShortcodeController
             echo $th;
         }
     }
+
+    public function adminListarReclamosDetalle($atts)
+    {
+        try {
+            $reclamos=[];
+            // $reclamos = Reclamo::getAdminReclamos($_GET);
+            // $comprobantes = ReclamoComprobante::get();
+            // $estados = ReclamoEstado::get();
+            // dd($reclamos);
+            return view("reclamo.admin.details", compact("reclamos"));
+        } catch (\Throwable $th) {
+            echo $th;
+        }
+    }
 }

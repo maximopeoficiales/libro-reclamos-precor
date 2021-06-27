@@ -60,6 +60,7 @@ class Config
         ['lrp_registrar_reclamo', [__NAMESPACE__ . '\ShortcodeController', 'registrarReclamo']],
         ['lrp_listar_reclamo', [__NAMESPACE__ . '\ShortcodeController', 'listarReclamos']],
         ['lrp_admin_reclamo', [__NAMESPACE__ . '\ShortcodeController', 'adminListarReclamos']],
+        ['lrp_admin_reclamo_detalle', [__NAMESPACE__ . '\ShortcodeController', 'adminListarReclamosDetalle']],
     ];
     /**
      * add Gutenberg's blocks
