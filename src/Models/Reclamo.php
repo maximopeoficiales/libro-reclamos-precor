@@ -72,4 +72,25 @@ class Reclamo extends Model
         }
         return $query->get();
     }
+    public static function getReclamoAdminByID($id_reclamo)
+    {
+        global $wpdb;
+        return Manager::table("reclamo AS t1")
+            ->selectRaw("{$wpdb->prefix}t1.id as id_reclamo,CONCAT('#',RIGHT(CONCAT('0000000',{$wpdb->prefix}t1.id),7)) as codigo,
+            DATE_FORMAT(DATE({$wpdb->prefix}t1.fecha),'%d/%m/%Y') as fecha_compra,
+            DATE_FORMAT(DATE({$wpdb->prefix}t1.updated_at),'%d/%m/%Y') as fecha_reclamo,
+            {$wpdb->prefix}t2.descripcion as estado,
+            {$wpdb->prefix}t1.*,
+            CONCAT({$wpdb->prefix}t6.descripcion,',',{$wpdb->prefix}t5.descripcion,',',{$wpdb->prefix}t4.descripcion) as departamentoProvinciaDistrito,
+            {$wpdb->prefix}t3.descripcion as tipo_comprobante,
+            CASE WHEN {$wpdb->prefix}t1.id_tipo_reclamacion = 1 THEN 'Reclamo' ELSE 'Queja' END AS tipo_reclamo
+            ")
+            ->join("reclamo_estado as t2", "t2.id", "=", "t1.id_estado")
+            ->join("reclamo_comprobante as t3", "t3.id", "=", "t1.id_tipo_comprobante")
+            ->join("ubigeo as t4", "t4.id", "=", "t1.id_ubigeo")
+            ->join("ubigeo_provincia as t5", "t5.id", "=", "t4.id_ubigeo_provincia")
+            ->join("ubigeo_departamento as t6", "t6.id", "=", "t5.id_departamento")
+            ->where("t1.id", "=", $id_reclamo)
+            ->get();
+    }
 }

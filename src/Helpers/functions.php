@@ -259,9 +259,9 @@ function lrp_hash_file($file)
  * Obtiene color de un estado dependiendo el estado
  * @return string
  */
-function lrp_get_color_by_status($status)
+function lrp_get_color_by_status($status, $bg = false)
 {
-    $prefix = "lrp-";
+    $prefix = !$bg ? "lrp-" : "lrp-bg-";
     $color = "";
     $status = strtolower($status);
     if (str_contains($status, "sin respuesta")) {

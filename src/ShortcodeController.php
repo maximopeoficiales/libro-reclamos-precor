@@ -51,12 +51,16 @@ class ShortcodeController
     public function adminListarReclamosDetalle($atts)
     {
         try {
-            $reclamos=[];
-            // $reclamos = Reclamo::getAdminReclamos($_GET);
-            // $comprobantes = ReclamoComprobante::get();
-            // $estados = ReclamoEstado::get();
-            // dd($reclamos);
-            return view("reclamo.admin.details", compact("reclamos"));
+            $id_reclamo = $_GET["id"];
+            if ($id_reclamo != "" || $id_reclamo != null) {
+                $reclamo = Reclamo::getReclamoAdminByID($id_reclamo);
+                // existe el reclamo
+                if (count($reclamo) != 0) {
+                    return view("reclamo.admin.details", ["reclamo" => $reclamo[0]]);
+                }
+                return view("errors.404", ["msg" => "No existe el Reclamo/Queja"]);
+            }
+            return view("errors.404", ["msg" => "Acceso Restringido"]);
         } catch (\Throwable $th) {
             echo $th;
         }

@@ -5,7 +5,7 @@
   --lrp-white: #ffffff;
   --lrp-green-white: #f9fff3;
   --lrp-text-gray: #979ea8;
-  --lrp-text-gray-secondary: #D9DCE4;
+  --lrp-text-gray-secondary: #bec1ca;
 }
 /* global */
 
@@ -51,20 +51,20 @@
 }
 /* lrp-bg-color */
 .lrp-bg-orange {
-  color: #d28f4d;
+  background-color: #d28f4d;
 }
 .lrp-bg-red {
-  color: #e54c52;
+  background-color: #e54c52;
 }
 .lrp-bg-green {
-  color: #5dc064;
+  background-color: #5dc064;
 }
 
 .lrp-bg-blue {
-  color: #535bb7;
+  background-color: #535bb7;
 }
 .lrp-bg-pink {
-  color: #c96ecb;
+  background-color: #c96ecb;
 }
 .lrp-text-gray {
   color: var(--lrp-text-gray);
@@ -312,7 +312,7 @@
 .lrp-circle {
   width: 10px;
   height: 10px;
-  background-color: var(--lrp-mini-primary);
   border: 1px;
   border-radius: 5px;
 }
+
