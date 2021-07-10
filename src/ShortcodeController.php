@@ -7,6 +7,7 @@ use IZNOP\Models\Reclamo;
 use IZNOP\Models\ReclamoComprobante;
 use IZNOP\Models\ReclamoEstado;
 use IZNOP\Models\Users;
+use IZNOPS\Enums\RoutesReclamo;
 
 class ShortcodeController
 {
@@ -41,8 +42,9 @@ class ShortcodeController
             $reclamos = Reclamo::getAdminReclamos($_GET);
             $comprobantes = ReclamoComprobante::get();
             $estados = ReclamoEstado::get();
+            $uriReclamoDetalle = lrp_get_url_wordpress(RoutesReclamo::adminDetalle);
             // dd($reclamos);
-            return view("reclamo.admin.list", compact("reclamos", "comprobantes", "estados"));
+            return view("reclamo.admin.list", compact("reclamos", "comprobantes", "estados","uriReclamoDetalle"));
         } catch (\Throwable $th) {
             echo $th;
         }

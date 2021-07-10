@@ -97,6 +97,15 @@ function lrp_get_url_admin_post(): void
     echo admin_url('admin-post.php');
 }
 /**
+ * Imprime la url actual del wordpress
+ * @return void
+ */
+function lrp_get_url_wordpress($ruta): string
+{
+    return home_url("/$ruta");
+    
+}
+/**
  * Crea un input hidden procces_form para que sea procesado
  * @return void
  */
