@@ -50,6 +50,7 @@ class Config
      */
     public $add_action = [
         ['admin_post_process_form', [__NAMESPACE__ . '\PostController', 'initializer']],
+        ['admin_post_nopriv_process_form', [__NAMESPACE__ . '\PostController', 'initializer']],
     ];
     /**
      * add custom shortcodes
