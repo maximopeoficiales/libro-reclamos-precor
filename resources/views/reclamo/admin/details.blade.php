@@ -2,6 +2,7 @@
 
 {{-- aqui va la parte que se repite en todos --}}
 @section('content')
+{{ lrp_show_message_custom('Se actualizo satisfactoriamente el Reclamo/Queja', '', 'Ocurrio un Error :(') }}
     <div class="row p-2 my-4">
         <div class="lrp-card col-12">
             <div class="lrp-card-header ">

@@ -80,46 +80,24 @@ class PostController
     public static function actualizarEstadoReclamoCaso()
     {
         try {
-            dd($_POST + $_FILES);
-
-            $responseValidator = Validator::validatePost(ReclamoValidator::validations);
+            $id_reclamo = lrp_sanitize($_POST["id_reclamo"]);
+            $responseValidator = Validator::validatePost(ReclamoValidator::actualizarEstadoCaso1);
             if ($responseValidator["validate"]) {
-                // dd(lrp_hash_file($_FILES["ruta_archivo"]));
-                // es valido los parametros
-                // dd($_POST + $_FILES);
-                // dd(wp_get_upload_dir());
-                $newFileName = Uploader::uploadFileInReclamo($_FILES["ruta_archivo"]);
-                // dd($newFileName);
-                $page = RoutesReclamo::registrar;
-                $reclamo = new Reclamo();
-
-                $reclamo->id_cli = lrp_sanitize($_POST["cod_cli"]);
-                $reclamo->nombre =  lrp_sanitize($_POST["nombre"]);
-                $reclamo->nrdoc =  lrp_sanitize($_POST["nrdoc"]);
-                $reclamo->documento =  lrp_sanitize($_POST["documento"]);
-                $reclamo->celular =  lrp_sanitize($_POST["celular"]);
-                $reclamo->correo =  lrp_sanitize($_POST["correo"]);
-                $reclamo->direccion =  lrp_sanitize($_POST["direccion"]);
-                $reclamo->id_ubigeo =  lrp_sanitize($_POST["id_ubigeo"]);
-                $reclamo->correo2 =  lrp_sanitize($_POST["correo2"]);
-                $reclamo->relacionado =  lrp_sanitize($_POST["relacionado"]);
-                $reclamo->id_tipo_comprobante =  lrp_sanitize($_POST["id_tipo_comprobante"]);
-                $reclamo->comprobante =  lrp_sanitize($_POST["comprobante"]);
-                $reclamo->fecha =  lrp_sanitize($_POST["fecha"]);
-                $reclamo->monto_reclamado =  lrp_sanitize($_POST["monto_reclamado"]);
-                $reclamo->ejecutivo =  lrp_sanitize($_POST["ejecutivo"]);
-                $reclamo->descripcion =  lrp_sanitize($_POST["descripcion"]);
-                $reclamo->id_tipo_reclamacion =  lrp_sanitize($_POST["id_tipo_reclamacion"]);
-                $reclamo->detalle =  lrp_sanitize($_POST["detalle"]);
-                $reclamo->ruta_archivo =  $newFileName;
-                $reclamo->id_estado =  1;
-                $reclamo->created_at =  lrp_getFechaActual(true);
+                $reclamo = Reclamo::find($id_reclamo);
+                $newFileName = Uploader::uploadFileInReclamo($_FILES["ruta_archivo2"]);
+                $reclamo->ruta_archivo2 =  $newFileName;
+                $reclamo->id_estado =   lrp_sanitize($_POST["id_estado"]);
+                $reclamo->comentario_admin =   lrp_sanitize($_POST["comentario_admin"]);
+                if ($_POST["fecha_aplazado"] != null ||  $_POST["fecha_aplazado"] != "") {
+                    $reclamo->fecha_aplazado =   lrp_sanitize($_POST["fecha_aplazado"]);
+                }
+                $reclamo->updated_at =  lrp_getFechaActual(true);
                 $reclamo->save();
 
-                lrp_redirect_create($page);
+                lrp_redirect(RoutesReclamo::adminDetalle . "?id=$id_reclamo&msg=1");
             } else {
                 // no es valido
-                lrp_redirect(RoutesReclamo::registrar, $responseValidator["errors"]);
+                lrp_redirect(RoutesReclamo::adminDetalle, $responseValidator["errors"] . "&id=$id_reclamo");
             }
         } catch (\Throwable $th) {
             echo $th;

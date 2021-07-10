@@ -9,14 +9,15 @@ wp_enqueue_style('lrp_flatPickrDarkCSS', 'https://npmcdn.com/flatpickr/dist/them
 <form action="{{ lrp_get_url_admin_post() }}" method="post" enctype="multipart/form-data" class="row p-2 my-4">
     {{ lrp_set_proccess_form() }}
     {{ lrp_set_action_name('actualizarEstadoReclamoCaso1') }}
+    <input type="hidden" name="id_reclamo" value="{{ $reclamo->id_reclamo }}">
     <div class="lrp-card col-12">
         <div class="lrp-card-body">
             <h3 class="font-weight-bold m-0">Ingresar Respuesta</h3>
             <div class="d-flex my-4">
                 <div class="form-check mx-4">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="id_estado" value="5" id="id_estado_aceptado" required
-                            checked>
+                        <input type="radio" class="form-check-input" name="id_estado" value="5" id="id_estado_aceptado"
+                            required checked>
                         Aceptado
                     </label>
                 </div>
@@ -29,15 +30,16 @@ wp_enqueue_style('lrp_flatPickrDarkCSS', 'https://npmcdn.com/flatpickr/dist/them
                 </div>
                 <div class="form-check mx-4">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="id_estado" id="id_estado_aplazar" value="8" required>
+                        <input type="radio" class="form-check-input" name="id_estado" id="id_estado_aplazar" value="8"
+                            required>
                         Aplazar
                     </label>
                 </div>
             </div>
             <div class="">
                 <div class="form-group my-2 d-none" id="divFechaAplazado">
-                    <label for="fecha_aplazo">Seleccionar Fecha:</label>
-                    <input type="text" class="form-control" name="fecha_aplazo" id="fecha_aplazo"
+                    <label for="fecha_aplazado">Seleccionar Fecha:</label>
+                    <input type="text" class="form-control" name="fecha_aplazado" id="fecha_aplazado"
                         placeholder="Ingrese la Fecha Aplazado">
                 </div>
                 <div class="form-group my-2">
@@ -65,7 +67,7 @@ wp_enqueue_style('lrp_flatPickrDarkCSS', 'https://npmcdn.com/flatpickr/dist/them
 <script>
     document.addEventListener('DOMContentLoaded', () => {
 
-        document.querySelector("#fecha_aplazo").flatpickr({
+        document.querySelector("#fecha_aplazado").flatpickr({
             "locale": "es"
         });
 

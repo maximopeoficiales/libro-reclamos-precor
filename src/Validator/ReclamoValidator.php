@@ -25,4 +25,13 @@ abstract class ReclamoValidator
         'detalle'                  => 'required|max:1000',
         'ruta_archivo'                  => 'required|uploaded_file|max:3M|mimes:png,jpeg',
     ];
+
+
+    const actualizarEstadoCaso1 = [
+        'id_reclamo'                  => 'required|numeric',
+        'id_estado'                  => 'required|numeric',
+        'detalle'                  => 'max:1000',
+        'fecha_aplazado'                  => 'date:Y-m-d',
+        'ruta_archivo2'                  => 'uploaded_file|max:3M|mimes:png,jpeg',
+    ];
 }
