@@ -1,5 +1,6 @@
 <?php
 
+
 function lrp_transform_text_p(string $text): string
 {
     $textTransform = "";
@@ -281,3 +282,4 @@ function lrp_get_color_by_status($status, $bg = false)
     }
     return $color;
 }
+

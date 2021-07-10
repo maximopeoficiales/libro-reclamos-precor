@@ -56,6 +56,7 @@ class ShortcodeController
                 $reclamo = Reclamo::getReclamoAdminByID($id_reclamo);
                 // existe el reclamo
                 if (count($reclamo) != 0) {
+                    // $reclamo[0]->id_estado = 2;
                     return view("reclamo.admin.details", ["reclamo" => $reclamo[0]]);
                 }
                 return view("errors.404", ["msg" => "No existe el Reclamo/Queja"]);
