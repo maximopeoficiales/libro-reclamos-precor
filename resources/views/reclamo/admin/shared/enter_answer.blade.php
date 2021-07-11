@@ -16,22 +16,19 @@ wp_enqueue_style('lrp_flatPickrDarkCSS', 'https://npmcdn.com/flatpickr/dist/them
             <div class="d-flex my-4">
                 <div class="form-check mx-4">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="id_estado" value="5" id="id_estado_aceptado"
-                            required checked>
+                        <input type="radio" class="form-check-input" name="id_estado" value="5" id="id_estado_aceptado" required checked>
                         Aceptado
                     </label>
                 </div>
                 <div class="form-check mx-4">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="id_estado" value="2" required
-                            id="id_estado_rechazado">
+                        <input type="radio" class="form-check-input" name="id_estado" value="2" required id="id_estado_rechazado">
                         Rechazado
                     </label>
                 </div>
                 <div class="form-check mx-4">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="id_estado" id="id_estado_aplazar" value="8"
-                            required>
+                        <input type="radio" class="form-check-input" name="id_estado" id="id_estado_aplazar" value="8" required>
                         Aplazar
                     </label>
                 </div>
@@ -39,26 +36,22 @@ wp_enqueue_style('lrp_flatPickrDarkCSS', 'https://npmcdn.com/flatpickr/dist/them
             <div class="">
                 <div class="form-group my-2 d-none" id="divFechaAplazado">
                     <label for="fecha_aplazado">Seleccionar Fecha:</label>
-                    <input type="text" class="form-control" name="fecha_aplazado" id="fecha_aplazado"
-                        placeholder="Ingrese la Fecha Aplazado">
+                    <input type="text" class="form-control" name="fecha_aplazado" id="fecha_aplazado" placeholder="Ingrese la Fecha Aplazado">
                 </div>
                 <div class="form-group my-2">
                     <label for="respuesta">Ingrese una descripcion (1000 caracteres máximo)*</label>
-                    <textarea class="form-control" name="comentario_admin" id="comentario_admin" rows="2"
-                        maxlength="1000" required></textarea>
+                    <textarea class="form-control" name="comentario_admin" id="comentario_admin" rows="2" maxlength="1000" required></textarea>
                 </div>
                 <div class="form-group my-2">
                     <label class="custom-file">
-                        <input type="file" name="ruta_archivo2" id="ruta_archivo2" placeholder="Seleccionar Archivo"
-                            class="custom-file-input" aria-describedby="fileHelpId" accept="image/png,image/jpeg">
+                        <input type="file" name="ruta_archivo2" id="ruta_archivo2" placeholder="Seleccionar Archivo" class="custom-file-input" aria-describedby="fileHelpId" accept="image/png,image/jpeg">
                         <span class="custom-file-control"></span>
                     </label>
                     <small id="fileHelpId" class="form-text text-muted">jpg,jpeg y png de hasta 3MB</small>
                 </div>
             </div>
             <div class="d-flex justify-content-end">
-                <button class="lrp-btn lrp-btn-primary text-capitalize " style="border-radius: 20px;"
-                    type="submit">Enviar</button>
+                <button class="lrp-btn lrp-btn-primary text-capitalize " style="border-radius: 20px;" type="submit">Enviar</button>
             </div>
         </div>
     </div>
@@ -66,11 +59,12 @@ wp_enqueue_style('lrp_flatPickrDarkCSS', 'https://npmcdn.com/flatpickr/dist/them
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-
+        let lrp_today = new Date();
+        let lrp_date = lrp_today.getFullYear() + '-' + (lrp_today.getMonth() + 1) + '-' + lrp_today.getDate();
         document.querySelector("#fecha_aplazado").flatpickr({
-            "locale": "es"
+            locale: "es",
+            minDate: lrp_date
         });
-
     });
 
     let radiosStatus = document.querySelectorAll('input[name="id_estado"]');

@@ -2,7 +2,7 @@
 
 {{-- aqui va la parte que se repite en todos --}}
 @section('content')
-{{ lrp_show_message_custom('Se actualizo satisfactoriamente el Reclamo/Queja', '', 'Ocurrio un Error :(') }}
+    {{ lrp_show_message_custom('Se actualizo satisfactoriamente el Reclamo/Queja', '', 'Ocurrio un Error :(') }}
     <div class="row p-2 my-4">
         <div class="lrp-card col-12">
             <div class="lrp-card-header ">
@@ -21,81 +21,86 @@
                     <div class="col-md-6">
                         <h5 class="lrp-text-gray-secondary font-weight-bold m-0">Datos Personales del Cliente</h5>
                         <div class="py-2">
-                            <p class="lrp-text-gray-secondary font-weight-bold m-0 py-1">Codigo de Cliente</p>
-                            <b class="font-weight-bold">{{ $reclamo->id_cli }}</b>
+                            <p class="lrp-text-gray font-weight-bold m-0 py-1">Codigo de Cliente</p>
+                            <b class="font-weight-bold lrp-green">{{ $reclamo->id_cli }}</b>
                         </div>
                         <div class="py-2">
-                            <p class="lrp-text-gray-secondary font-weight-bold m-0 py-1">Nombre Completo</p>
-                            <b class="font-weight-bold">{{ $reclamo->nombre }}</b>
+                            <p class="lrp-text-gray font-weight-bold m-0 py-1">Nombre Completo</p>
+                            <b class="font-weight-bold lrp-green">{{ $reclamo->nombre }}</b>
                         </div>
                         <div class="py-2">
-                            <p class="lrp-text-gray-secondary font-weight-bold m-0 py-1">RUC</p>
-                            <b class="font-weight-bold">{{ $reclamo->nrdoc }}</b>
+                            <p class="lrp-text-gray font-weight-bold m-0 py-1">RUC</p>
+                            <b class="font-weight-bold lrp-green">{{ $reclamo->nrdoc }}</b>
                         </div>
                         <div class="py-2">
-                            <p class="lrp-text-gray-secondary font-weight-bold m-0 py-1">Número de DNI/C.E/Pasaporte</p>
-                            <b class="font-weight-bold">{{ $reclamo->documento }}</b>
+                            <p class="lrp-text-gray font-weight-bold m-0 py-1">Número de DNI/C.E/Pasaporte</p>
+                            <b class="font-weight-bold lrp-green">{{ $reclamo->documento }}</b>
                         </div>
                         <div class="py-2">
-                            <p class="lrp-text-gray-secondary font-weight-bold m-0 py-1">Teléfono Celular</p>
-                            <b class="font-weight-bold">{{ $reclamo->celular }}</b>
+                            <p class="lrp-text-gray font-weight-bold m-0 py-1">Teléfono Celular</p>
+                            <b class="font-weight-bold lrp-green">{{ $reclamo->celular }}</b>
                         </div>
                         <div class="py-2">
-                            <p class="lrp-text-gray-secondary font-weight-bold m-0 py-1">Correo</p>
-                            <b class="font-weight-bold">{{ $reclamo->correo }}</b>
+                            <p class="lrp-text-gray font-weight-bold m-0 py-1">Correo</p>
+                            <b class="font-weight-bold lrp-green">{{ $reclamo->correo }}</b>
                         </div>
                         <div class="py-2">
-                            <p class="lrp-text-gray-secondary font-weight-bold m-0 py-1">Domicilio</p>
-                            <b class="font-weight-bold">{{ $reclamo->direccion }}</b>
+                            <p class="lrp-text-gray font-weight-bold m-0 py-1">Domicilio</p>
+                            <b class="font-weight-bold lrp-green">{{ $reclamo->direccion }}</b>
                         </div>
                         <div class="py-2">
-                            <p class="lrp-text-gray-secondary font-weight-bold m-0 py-1">Departamento/Provincia/Distrito</p>
-                            <b class="font-weight-bold">{{ $reclamo->departamentoProvinciaDistrito }}</b>
+                            <p class="lrp-text-gray font-weight-bold m-0 py-1">Departamento/Provincia/Distrito</p>
+                            <b class="font-weight-bold lrp-green">{{ $reclamo->departamentoProvinciaDistrito }}</b>
                         </div>
                         <div class="py-2">
-                            <p class="lrp-text-gray-secondary font-weight-bold m-0 py-1">Correo Electroníco para una copia
+                            <p class="lrp-text-gray font-weight-bold m-0 py-1">Correo Electroníco para una copia
                                 del reclamo</p>
-                            <b class="font-weight-bold">{{ $reclamo->correo2 }}</b>
+                            <b class="font-weight-bold lrp-green">{{ $reclamo->correo2 }}</b>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <h5 class="lrp-text-gray-secondary font-weight-bold m-0">Información</h5>
                         <div class="py-2">
-                            <p class="lrp-text-gray-secondary font-weight-bold m-0 py-1">Producto o Servicio Relacionado</p>
-                            <b class="font-weight-bold">{{ $reclamo->relacionado }}</b>
+                            <p class="lrp-text-gray font-weight-bold m-0 py-1">Producto o Servicio Relacionado</p>
+                            <b class="font-weight-bold lrp-green">{{ $reclamo->relacionado }}</b>
                         </div>
                         <div class="py-2">
-                            <p class="lrp-text-gray-secondary font-weight-bold m-0 py-1">Tipo de Comprobante</p>
-                            <b class="font-weight-bold">{{ $reclamo->tipo_comprobante }}</b>
+                            <p class="lrp-text-gray font-weight-bold m-0 py-1">Tipo de Comprobante</p>
+                            <b class="font-weight-bold lrp-green">{{ $reclamo->tipo_comprobante }}</b>
                         </div>
                         <div class="py-2">
-                            <p class="lrp-text-gray-secondary font-weight-bold m-0 py-1">Número de Comprobante</p>
-                            <b class="font-weight-bold">{{ $reclamo->comprobante }}</b>
+                            <p class="lrp-text-gray font-weight-bold m-0 py-1">Número de Comprobante</p>
+                            <b class="font-weight-bold lrp-green">{{ $reclamo->comprobante }}</b>
                         </div>
                         <div class="py-2">
-                            <p class="lrp-text-gray-secondary font-weight-bold m-0 py-1">Fecha de Compra</p>
-                            <b class="font-weight-bold">{{ $reclamo->fecha_compra }}</b>
+                            <p class="lrp-text-gray font-weight-bold m-0 py-1">Fecha de Compra</p>
+                            <b class="font-weight-bold lrp-green">{{ $reclamo->fecha_compra }}</b>
                         </div>
                         <div class="py-2">
-                            <p class="lrp-text-gray-secondary font-weight-bold m-0 py-1">Nombre de Ejecutivo</p>
-                            <b class="font-weight-bold">{{ $reclamo->ejecutivo }}</b>
+                            <p class="lrp-text-gray font-weight-bold m-0 py-1">Nombre de Ejecutivo</p>
+                            <b class="font-weight-bold lrp-green">{{ $reclamo->ejecutivo }}</b>
                         </div>
                         <div class="py-2">
-                            <p class="lrp-text-gray-secondary font-weight-bold m-0 py-1">Descripcíon</p>
-                            <b class="font-weight-bold">{{ $reclamo->descripcion }}</b>
+                            <p class="lrp-text-gray font-weight-bold m-0 py-1">Descripcíon</p>
+                            <b class="font-weight-bold lrp-green">{{ $reclamo->descripcion }}</b>
                         </div>
                         <div class="py-2">
-                            <p class="lrp-text-gray-secondary font-weight-bold m-0 py-1">Tipo de Reclamacíon</p>
-                            <b class="font-weight-bold">{{ $reclamo->tipo_reclamo }}</b>
+                            <p class="lrp-text-gray font-weight-bold m-0 py-1">Tipo de Reclamacíon</p>
+                            <b class="font-weight-bold lrp-green">{{ $reclamo->tipo_reclamo }}</b>
                         </div>
                         <div class="py-2">
-                            <p class="lrp-text-gray-secondary font-weight-bold m-0 py-1">Descripción</p>
-                            <b class="font-weight-bold">{{ $reclamo->detalle }}</b>
+                            <p class="lrp-text-gray font-weight-bold m-0 py-1">Descripción</p>
+                            <b class="font-weight-bold lrp-green">{{ $reclamo->detalle }}</b>
                         </div>
-                        <div class="py-2">
-                            <button class="lrp-btn lrp-btn-secondary text-capitalize w-100"
-                                style="border-radius: 20px;">Descargar Archivo</button>
-                        </div>
+                        @if ($reclamo->ruta_archivo != '' && $reclamo->ruta_archivo != null)
+                            <div class="py-2">
+                                <a href="{{ getAssetUploadsReclamo() . $reclamo->ruta_archivo }}"
+                                    download="{{ $reclamo->ruta_archivo }}"
+                                    target="_blank"
+                                    class="lrp-btn lrp-btn-secondary text-capitalize w-100"
+                                    style="border-radius: 20px;">Descargar Archivo</a>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -107,7 +112,7 @@
 {{-- fin de la parte que se repite --}}
 
 @section('answers')
-    
+
     @if ($reclamo->id_estado == 1 && $reclamo->id_estado != 8)
         @includeIf('reclamo.admin.shared.enter_answer', ['reclamo' => $reclamo])
     @else
