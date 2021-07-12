@@ -26,6 +26,9 @@ class PostController
             case ActionName::actualizarEstadoReclamoCaso1:
                 self::actualizarEstadoReclamoCaso();
                 break;
+            case ActionName::enterAnswerClient:
+                self::actualizarEstadoReclamoCasoCliente();
+                break;
             default:
                 return;
         }
@@ -98,6 +101,28 @@ class PostController
             } else {
                 // no es valido
                 lrp_redirect(RoutesReclamo::adminDetalle, $responseValidator["errors"] . "&id=$id_reclamo");
+            }
+        } catch (\Throwable $th) {
+            echo $th;
+        }
+    }
+    public static function actualizarEstadoReclamoCasoCliente()
+    {
+        try {
+            $id_reclamo = lrp_sanitize($_POST["id_reclamo"]);
+            $responseValidator = Validator::validatePost(ReclamoValidator::actualizarEstadoCasoCliente);
+            if ($responseValidator["validate"]) {
+                $reclamo = Reclamo::find($id_reclamo);
+                $newFileName = Uploader::uploadFileInReclamo($_FILES["ruta_archivo3"]);
+                $reclamo->ruta_archivo3 =  $newFileName;
+                $reclamo->id_estado =   lrp_sanitize($_POST["id_estado"]);
+                $reclamo->comentario_cliente =   lrp_sanitize($_POST["comentario_cliente"]);
+                $reclamo->updated_at =  lrp_getFechaActual(true);
+                $reclamo->save();
+                lrp_redirect(RoutesReclamo::detalle . "?id=$id_reclamo&msg=1");
+            } else {
+                // no es valido
+                lrp_redirect(RoutesReclamo::detalle, $responseValidator["errors"] . "&id=$id_reclamo");
             }
         } catch (\Throwable $th) {
             echo $th;

@@ -42,7 +42,7 @@ wp_enqueue_style('lrp_flatPickrDarkCSS', 'https://npmcdn.com/flatpickr/dist/them
                     <label for="respuesta">Ingrese una descripcion (1000 caracteres máximo)*</label>
                     <textarea class="form-control" name="comentario_admin" id="comentario_admin" rows="2" maxlength="1000" required></textarea>
                 </div>
-                <div class="form-group my-2">
+                <div class="form-group my-4">
                     <label class="custom-file">
                         <input type="file" name="ruta_archivo2" id="ruta_archivo2" placeholder="Seleccionar Archivo" class="custom-file-input" aria-describedby="fileHelpId" accept="image/png,image/jpeg">
                         <span class="custom-file-control"></span>

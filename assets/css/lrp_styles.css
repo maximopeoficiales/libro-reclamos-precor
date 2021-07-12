@@ -209,6 +209,8 @@
   padding: 15px;
   font-weight: bold;
   width: 200px;
+  display: flex;
+  justify-content: center;
 }
 .lrp-btn-secondary {
   background-color: var(--lrp-mini-primary);

@@ -24,8 +24,7 @@ wp_enqueue_style('lrp_styles', asset('css/lrp_styles.css'), '', '1.0.0');
         <div class="row">
             <div class="col-md-4">
                 <div class="lrp-group">
-                    <input type="number" name="id_reclamo" id="id_reclamo" aria-describedby="helpId"
-                        placeholder="Ingresa el Código de tu Reclamo">
+                    <input type="number" name="id_reclamo" id="id_reclamo" aria-describedby="helpId" placeholder="Ingresa el Código de tu Reclamo">
                     <label for="id_reclamo">Código de Reclamo</label>
                     <span class="lrp-highlight"></span>
                     <span class="lrp-bar"></span>
@@ -33,8 +32,7 @@ wp_enqueue_style('lrp_styles', asset('css/lrp_styles.css'), '', '1.0.0');
             </div>
             <div class="col-md-4">
                 <div class="lrp-group">
-                    <input type="number" name="id_cli" id="id_cli" aria-describedby="helpId"
-                        placeholder="Ingresa el Código del Cliente">
+                    <input type="number" name="id_cli" id="id_cli" aria-describedby="helpId" placeholder="Ingresa el Código del Cliente">
                     <label for="cod_cli">Código del Cliente</label>
                     <span class="lrp-highlight"></span>
                     <span class="lrp-bar"></span>
@@ -48,34 +46,35 @@ wp_enqueue_style('lrp_styles', asset('css/lrp_styles.css'), '', '1.0.0');
 
     @if (count($reclamos) == 0)
 
-        <h3 class="text-center my-4">No hay reclamos que mostrar</h3>
+    <h3 class="text-center my-4">No hay reclamos que mostrar</h3>
     @else
-        <div class="my-4">
-            <table class=" display  nowrap p-2" style="width: 100% !important; " id="table-reclamos">
-                <thead class="">
-                    <tr>
-                        <th class="text-center lrp-text-gray">#</th>
-                        <th class="text-center lrp-text-gray">Fecha de Creacion</th>
-                        <th class="text-center lrp-text-gray">Status</th>
-                        <th class="text-center lrp-text-gray">Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($reclamos as $reclamo)
-                        <tr>
-                            <td scope="row" class="text-center font-weight-bold">{{ $reclamo->codigo }}</td>
-                            <td class="text-center">{{ $reclamo->fecha }}</td>
-                            <td class="font-weight-bold text-center {{ lrp_get_color_by_status($reclamo->estado)}}">{{ $reclamo->estado }}</td>
-                            <td class="text-center">
-                                <a href="#{{ $reclamo->id_reclamo }}" class="font-weight-bold">
-                                    Ver más
-                                </a>
-                            </td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        </div>
+    <div class="my-4">
+        <table class=" display  nowrap p-2" style="width: 100% !important; " id="table-reclamos">
+            <thead class="">
+                <tr>
+                    <th class="text-center lrp-text-gray">#</th>
+                    <th class="text-center lrp-text-gray">Fecha de Creacion</th>
+                    <th class="text-center lrp-text-gray">Status</th>
+                    <th class="text-center lrp-text-gray">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($reclamos as $reclamo)
+                <tr>
+                    <td scope="row" class="text-center font-weight-bold">{{ $reclamo->codigo }}</td>
+                    <td class="text-center">{{ $reclamo->fecha }}</td>
+                    <td class="font-weight-bold text-center {{ lrp_get_color_by_status($reclamo->estado)}}">{{ $reclamo->estado }}</td>
+                    <td class="text-center">
+                        <a href="{{ $uriReclamoDetalle . '?id=' . $reclamo->id_reclamo }}" class="font-weight-bold">
+
+                            Ver más
+                        </a>
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
     @endif
 
 
@@ -83,18 +82,22 @@ wp_enqueue_style('lrp_styles', asset('css/lrp_styles.css'), '', '1.0.0');
 
 <script>
     // existen reclamos
-    @if (count($reclamos) > 0)
-        document.addEventListener("DOMContentLoaded", function(event) {
-            {{ lrp_datatables_in_spanish() }}
-            $('#table-reclamos').DataTable({
-                order: [[1, "desc" ]],
-                pageLength: 20,
-                rowReorder: {
-                selector: 'td:nth-child(2)'
-                },
-                responsive: true
-            });
-        });
+    @if(count($reclamos) > 0)
     
+    document.addEventListener("DOMContentLoaded", function(event) {
+        {{ lrp_datatables_in_spanish() }}
+        
+        $('#table-reclamos').DataTable({
+            order: [
+                [1, "desc"]
+            ],
+            pageLength: 20,
+            rowReorder: {
+                selector: 'td:nth-child(2)'
+            },
+            responsive: true
+        });
+    });
+
     @endif
 </script>

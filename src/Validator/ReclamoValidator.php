@@ -30,8 +30,14 @@ abstract class ReclamoValidator
     const actualizarEstadoCaso1 = [
         'id_reclamo'                  => 'required|numeric',
         'id_estado'                  => 'required|numeric',
-        'detalle'                  => 'max:1000',
+        'comentario_admin'                  => 'max:1000',
         'fecha_aplazado'                  => 'date:Y-m-d',
         'ruta_archivo2'                  => 'uploaded_file|max:3M|mimes:png,jpeg',
+    ];
+    const actualizarEstadoCasoCliente = [
+        'id_reclamo'                  => 'required|numeric',
+        'id_estado'                  => 'required|numeric',
+        'comentario_cliente'                  => 'max:1000',
+        'ruta_archivo3'                  => 'uploaded_file|max:3M|mimes:png,jpeg',
     ];
 }

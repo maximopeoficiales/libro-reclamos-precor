@@ -20,7 +20,7 @@ class ShortcodeController
             $comprobantes = ReclamoComprobante::get();
             $ubigeos = QuerysCustom::getUbigeos();
             // dd($ubigeos);
-            return view("reclamo.create", compact("comprobantes", "ubigeos"));
+            return view("reclamo.client.create", compact("comprobantes", "ubigeos"));
         } catch (\Throwable $th) {
             echo $th;
         }
@@ -31,7 +31,9 @@ class ShortcodeController
 
         try {
             $reclamos = Reclamo::getReclamos($_GET);
-            return view("reclamo.list", compact("reclamos"));
+            $uriReclamoDetalle = lrp_get_url_wordpress(RoutesReclamo::detalle);
+
+            return view("reclamo.client.list", compact("reclamos","uriReclamoDetalle"));
         } catch (\Throwable $th) {
             echo $th;
         }
@@ -60,6 +62,24 @@ class ShortcodeController
                 if (count($reclamo) != 0) {
                     // $reclamo[0]->id_estado = 2;
                     return view("reclamo.admin.details", ["reclamo" => $reclamo[0]]);
+                }
+                return view("errors.404", ["msg" => "No existe el Reclamo/Queja"]);
+            }
+            return view("errors.404", ["msg" => "Acceso Restringido"]);
+        } catch (\Throwable $th) {
+            echo $th;
+        }
+    }
+    public function clienteListarReclamosDetalle($atts)
+    {
+        try {
+            $id_reclamo = $_GET["id"];
+            if ($id_reclamo != "" || $id_reclamo != null) {
+                $reclamo = Reclamo::getReclamoAdminByID($id_reclamo);
+                // existe el reclamo
+                if (count($reclamo) != 0) {
+                    // $reclamo[0]->id_estado = 2;
+                    return view("reclamo.client.details", ["reclamo" => $reclamo[0]]);
                 }
                 return view("errors.404", ["msg" => "No existe el Reclamo/Queja"]);
             }
