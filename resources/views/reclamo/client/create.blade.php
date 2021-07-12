@@ -100,8 +100,8 @@
                     </div>
 
                     <div class="form-group">
-                        <select class="form-control" name="id_tipo_comprobante" id="id_tipo_comprobante" class="w-100"
-                            class="w-100" style="width: 100% !important>
+                        <label for="id_tipo_comprobante">Seleccionar Tipo de Comprobante</label>
+                        <select class="form-control" name="id_tipo_comprobante" id="id_tipo_comprobante">
                             {{-- <option value="">Seleccionar Tipo de Comprobante</option> --}}
                              @foreach ($comprobantes as $comprobante)
                             <option value="{{ $comprobante->id }}">{{ $comprobante->descripcion }}</option>
