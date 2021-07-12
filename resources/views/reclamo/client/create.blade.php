@@ -1,4 +1,4 @@
-@extends('reclamo.cliente.layout')
+@extends('reclamo.client.layout')
 
 @section('content')
     <h1 class="font-weight-bold">Libro de Reclamaciones</h1>
