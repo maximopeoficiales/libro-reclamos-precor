@@ -7,6 +7,7 @@ use IZNOP\Models\Reclamo;
 use IZNOP\Models\ReclamoComprobante;
 use IZNOP\Models\ReclamoEstado;
 use IZNOP\Models\Users;
+use IZNOPS\Bcrypt\Bcrypt;
 use IZNOPS\Enums\RoutesReclamo;
 
 class ShortcodeController
@@ -30,10 +31,13 @@ class ShortcodeController
     {
 
         try {
+           
             $reclamos = Reclamo::getReclamos($_GET);
             $uriReclamoDetalle = lrp_get_url_wordpress(RoutesReclamo::detalle);
-
-            return view("reclamo.client.list", compact("reclamos","uriReclamoDetalle"));
+            foreach ($reclamos as $reclamo) {
+                $reclamo->id_reclamo = Bcrypt::encryption($reclamo->id_reclamo);
+            }
+            return view("reclamo.client.list", compact("reclamos", "uriReclamoDetalle"));
         } catch (\Throwable $th) {
             echo $th;
         }
@@ -46,7 +50,10 @@ class ShortcodeController
             $estados = ReclamoEstado::get();
             $uriReclamoDetalle = lrp_get_url_wordpress(RoutesReclamo::adminDetalle);
             // dd($reclamos);
-            return view("reclamo.admin.list", compact("reclamos", "comprobantes", "estados","uriReclamoDetalle"));
+            foreach ($reclamos as $reclamo) {
+                $reclamo->id_reclamo = Bcrypt::encryption($reclamo->id_reclamo);
+            }
+            return view("reclamo.admin.list", compact("reclamos", "comprobantes", "estados", "uriReclamoDetalle"));
         } catch (\Throwable $th) {
             echo $th;
         }
@@ -55,6 +62,9 @@ class ShortcodeController
     public function adminListarReclamosDetalle($atts)
     {
         try {
+            if ($_GET["id"] != null) {
+                $_GET["id"] = Bcrypt::decryption($_GET["id"]);
+            }
             $id_reclamo = $_GET["id"];
             if ($id_reclamo != "" || $id_reclamo != null) {
                 $reclamo = Reclamo::getReclamoAdminByID($id_reclamo);
@@ -73,6 +83,9 @@ class ShortcodeController
     public function clienteListarReclamosDetalle($atts)
     {
         try {
+            if ($_GET["id"] != null) {
+                $_GET["id"] = Bcrypt::decryption($_GET["id"]);
+            }
             $id_reclamo = $_GET["id"];
             if ($id_reclamo != "" || $id_reclamo != null) {
                 $reclamo = Reclamo::getReclamoAdminByID($id_reclamo);
