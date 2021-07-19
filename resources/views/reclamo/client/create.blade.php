@@ -61,7 +61,7 @@
                 </div>
                 <div class="lrp-group">
                     <input type="email" name="correo" id="correo" required placeholder="Correo*" maxlength="80"
-                    value="{{ $user->user_login }}"
+                    value="{{ $user->user_email }}"
                     >
                     <span class="lrp-highlight"></span>
                     <span class="lrp-bar"></span>
