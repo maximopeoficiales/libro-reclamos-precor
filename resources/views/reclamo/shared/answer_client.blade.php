@@ -20,8 +20,7 @@
                 <p class="my-4">
                     <a href="{{ getAssetUploadsReclamo() . $reclamo->ruta_archivo3 }}"
                         download="{{ $reclamo->ruta_archivo3 }}" target="_blank"
-                        class="lrp-btn lrp-btn-secondary text-capitalize w-100 my-2" ">Descargar Comprobante de
-                            Aceptacíon</a>
+                        class="lrp-btn lrp-btn-secondary text-capitalize w-100 my-2" ">Descargar Comprobante</a>
                     </p>
                 </div>
                 @endif
