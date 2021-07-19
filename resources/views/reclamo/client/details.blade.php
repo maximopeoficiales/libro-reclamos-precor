@@ -19,7 +19,7 @@
     
     {{-- si el cliente no ha respondido cuando el admin acepto el reclamo --}}
     @if (!in_array($reclamo->id_estado, [1, 6, 7], true) && in_array($reclamo->id_estado, [5], true))
-        @includeIf('reclamo.shared.enter_answer_client', ['reclamo' => $reclamo,"aceptado"=> false])
+        @includeIf('reclamo.shared.enter_answer_client', ['reclamo' => $reclamo,"aceptado"=> true])
         {{-- caso especificos --}}
     @endif
 
