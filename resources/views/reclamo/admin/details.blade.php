@@ -11,11 +11,22 @@
 
 @section('answers')
 
-    @if ($reclamo->id_estado == 1 && $reclamo->id_estado != 8)
+    @if (!empty($reclamo->comentario_admin))
+        @includeIf('reclamo.shared.answer_admin', ['reclamo' => $reclamo])
+    @endif
+
+    @if (!empty($reclamo->comentario_cliente))
+        @includeIf('reclamo.shared.answer_client', ['reclamo' => $reclamo])
+    @endif
+
+    {{-- solo puede ingresar respuesta cuando el estado en sin respuesta --}}
+    @if (in_array($reclamo->id_estado, [1], true))
         @includeIf('reclamo.shared.enter_answer', ['reclamo' => $reclamo])
-        {{-- caso especificos --}}
-    @elseif(in_array($reclamo->id_estado,[2,3,4,5,6,7,9],true))
-        
+    @endif
+    
+    
+    {{-- @if(in_array($reclamo->id_estado,[2,3,4,5,6,7,9],true))
+
         @if ($reclamo->comentario_admin != null && $reclamo->comentario_admin)
             @includeIf('reclamo.shared.answer_admin', ['reclamo' => $reclamo])
         @endif
@@ -24,5 +35,5 @@
             @includeIf('reclamo.shared.answer_client', ['reclamo' => $reclamo])
         @endif
 
-    @endif
+    @endif --}}
 @endsection

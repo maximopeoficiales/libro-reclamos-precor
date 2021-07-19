@@ -61,6 +61,10 @@
                             <b class="font-weight-bold lrp-green">{{ $reclamo->relacionado }}</b>
                         </div>
                         <div class="py-2">
+                            <p class="lrp-text-gray font-weight-bold m-0 py-1">Monto Reclamado</p>
+                            <b class="font-weight-bold lrp-green">{{ number_format($reclamo->monto_reclamado,2) }}</b>
+                        </div>
+                        <div class="py-2">
                             <p class="lrp-text-gray font-weight-bold m-0 py-1">Tipo de Comprobante</p>
                             <b class="font-weight-bold lrp-green">{{ $reclamo->tipo_comprobante }}</b>
                         </div>

@@ -3,6 +3,7 @@
 namespace IZNOPS;
 
 use IZNOP\Models\Reclamo;
+use IZNOPS\Bcrypt\Bcrypt;
 use IZNOPS\Enums\ActionName;
 use IZNOPS\Enums\RoutesReclamo;
 use IZNOPS\Uploader\Uploader;
@@ -96,7 +97,7 @@ class PostController
                 }
                 $reclamo->updated_at =  lrp_getFechaActual(true);
                 $reclamo->save();
-
+                $id_reclamo = Bcrypt::encryption($id_reclamo);
                 lrp_redirect(RoutesReclamo::adminDetalle . "?id=$id_reclamo&msg=1");
             } else {
                 // no es valido
@@ -119,6 +120,7 @@ class PostController
                 $reclamo->comentario_cliente =   lrp_sanitize($_POST["comentario_cliente"]);
                 $reclamo->updated_at =  lrp_getFechaActual(true);
                 $reclamo->save();
+                $id_reclamo = Bcrypt::encryption($id_reclamo);
                 lrp_redirect(RoutesReclamo::detalle . "?id=$id_reclamo&msg=1");
             } else {
                 // no es valido

@@ -6,34 +6,60 @@
         <div class="lrp-card-body">
             <h3 class="font-weight-bold m-0">Ingresar Respuesta</h3>
             <div class="d-flex my-4">
-                <div class="form-check mx-4">
-                    <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="id_estado" value="6" id="id_estado_aceptado" required checked>
-                        Respuesta Aceptada por el Cliente
-                    </label>
-                </div>
-                <div class="form-check mx-4">
-                    <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="id_estado" value="7" required id="id_estado_rechazado">
-                        Respuesta Rechazada por el Cliente
-                    </label>
-                </div>
+                @if ($aceptado)
+                    <div class="form-check mx-4">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="id_estado" value="6"
+                                id="id_estado_aceptado" required checked>
+                            Respuesta Aceptada por el Cliente
+                        </label>
+                    </div>
+                    <div class="form-check mx-4">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="id_estado" value="7" required
+                                id="id_estado_rechazado">
+                            Respuesta Rechazada por el Cliente
+                        </label>
+                    </div>
+                @else
+
+                    <div class="form-check mx-4">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="id_estado" value="3"
+                                id="id_estado_aceptado" required checked>
+                            Respuesta Aceptada por el Cliente
+                        </label>
+                    </div>
+                    
+                    <div class="form-check mx-4">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="id_estado" value="4" required
+                                id="id_estado_rechazado">
+                            Respuesta Rechazada por el Cliente
+                        </label>
+                    </div>
+                @endif
+
+
             </div>
             <div class="">
                 <div class="form-group my-2">
                     <label for="respuesta">Ingrese una descripcion (1000 caracteres máximo)*</label>
-                    <textarea class="form-control" name="comentario_cliente" id="comentario_cliente" rows="2" maxlength="1000" required></textarea>
+                    <textarea class="form-control" name="comentario_cliente" id="comentario_cliente" rows="2"
+                        maxlength="1000" required></textarea>
                 </div>
                 <div class="form-group my-4">
                     <label class="custom-file">
-                        <input type="file" name="ruta_archivo3" id="ruta_archivo3" placeholder="Seleccionar Archivo" class="custom-file-input" aria-describedby="fileHelpId" accept="image/png,image/jpeg">
+                        <input type="file" name="ruta_archivo3" id="ruta_archivo3" placeholder="Seleccionar Archivo"
+                            class="custom-file-input" aria-describedby="fileHelpId" accept="image/png,image/jpeg">
                         <span class="custom-file-control"></span>
                     </label>
                     <small id="fileHelpId" class="form-text text-muted">jpg,jpeg y png de hasta 3MB</small>
                 </div>
             </div>
             <div class="d-flex justify-content-end">
-                <button class="lrp-btn lrp-btn-primary text-capitalize " style="border-radius: 20px;" type="submit">Enviar</button>
+                <button class="lrp-btn lrp-btn-primary text-capitalize " style="border-radius: 20px;"
+                    type="submit">Enviar</button>
             </div>
         </div>
     </div>

@@ -15,11 +15,11 @@
             <p class="font-weight-bold">{{ $reclamo->comentario_cliente }}</p>
         </div>
 
-        @if ($reclamo->ruta_archivo2 != '' && $reclamo->ruta_archivo2 != null)
+        @if ($reclamo->ruta_archivo3 != '' && $reclamo->ruta_archivo3 != null)
             <div class="py-2">
                 <p class="my-4">
-                    <a href="{{ getAssetUploadsReclamo() . $reclamo->ruta_archivo2 }}"
-                        download="{{ $reclamo->ruta_archivo2 }}" target="_blank"
+                    <a href="{{ getAssetUploadsReclamo() . $reclamo->ruta_archivo3 }}"
+                        download="{{ $reclamo->ruta_archivo3 }}" target="_blank"
                         class="lrp-btn lrp-btn-secondary text-capitalize w-100 my-2" ">Descargar Comprobante de
                             Aceptacíon</a>
                     </p>
