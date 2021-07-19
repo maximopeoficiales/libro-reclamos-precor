@@ -51,6 +51,8 @@ class Config
     public $add_action = [
         ['admin_post_process_form', [__NAMESPACE__ . '\PostController', 'initializer']],
         ['admin_post_nopriv_process_form', [__NAMESPACE__ . '\PostController', 'initializer']],
+        ['wp_ajax_lrp_reclamo_pdf', [__NAMESPACE__ . '\PdfController', 'generate']],
+        ['wp_ajax_nopriv_lrp_reclamo_pdf', [__NAMESPACE__ . '\PdfController', 'generate']],
     ];
     /**
      * add custom shortcodes

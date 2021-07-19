@@ -6,7 +6,7 @@ define('METHOD', 'AES-256-CBC');
 define('SECRET_KEY', 'lrp_clg_2021');
 define('SECRET_IV', 'lrp_clg_2021_bcrypt');
 class Bcrypt
-{   
+{
     public static function encryption($string)
     {
         $output = FALSE;

@@ -32,7 +32,8 @@
   "require": {
     "jenssegers/blade": "^1.4",
     "rakit/validation": "^1.4",
-    "illuminate/database": "^8.40"
+    "illuminate/database": "^8.40",
+    "mpdf/mpdf": "^8.0"
   },
   "require-dev": {
     "vlucas/phpdotenv": "^3.5",
