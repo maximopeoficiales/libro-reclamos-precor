@@ -41,13 +41,15 @@ class Reclamo extends Model
                 DATE_FORMAT(DATE({$wpdb->prefix}t1.created_at),'%d/%m/%Y') as fecha,
                 {$wpdb->prefix}t2.descripcion as estado,
                 CASE WHEN {$wpdb->prefix}t1.id_estado in (1,2,5,8) THEN
-                CONCAT('Vence en ',DATEDIFF(NOW(),{$wpdb->prefix}t1.updated_at),' dias') END as vencimiento,
+                CONCAT('Vence en ',DATEDIFF(NOW(),{$wpdb->prefix}t1.updated_at),' dias')
+                ELSE 'Vencido'
+                END as vencimiento,
                 {$wpdb->prefix}t3.descripcion as tipo_comprobante,
                 {$wpdb->prefix}t1.comprobante,
                 {$wpdb->prefix}t1.documento
             ")
             ->join("reclamo_estado as t2", "t2.id", "=", "t1.id_estado")
-            ->join("reclamo_comprobante as t3", "t3.id", "=", "t1.id")
+            ->join("reclamo_comprobante as t3", "t3.id", "=", "t1.id_tipo_comprobante")
             ->orderByDesc("t1.created_at");
 
         if ($params["id_cli"] != "" && !is_null($params["id_cli"])) {

@@ -49,10 +49,9 @@ class ShortcodeController
             $comprobantes = ReclamoComprobante::get();
             $estados = ReclamoEstado::get();
             $uriReclamoDetalle = lrp_get_url_wordpress(RoutesReclamo::adminDetalle);
-            // dd($reclamos);
-            foreach ($reclamos as $reclamo) {
-                $reclamo->id_reclamo = Bcrypt::encryption($reclamo->id_reclamo);
-            }
+            // foreach ($reclamos as $reclamo) {
+            //     $reclamo->id_reclamo = Bcrypt::encryption($reclamo->id_reclamo);
+            // }
             return view("reclamo.admin.list", compact("reclamos", "comprobantes", "estados", "uriReclamoDetalle"));
         } catch (\Throwable $th) {
             echo $th;
