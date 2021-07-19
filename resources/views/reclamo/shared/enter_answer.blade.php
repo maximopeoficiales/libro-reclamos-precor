@@ -60,7 +60,7 @@ wp_enqueue_style('lrp_flatPickrDarkCSS', 'https://npmcdn.com/flatpickr/dist/them
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         let lrp_today = new Date();
-        let lrp_date = lrp_today.getFullYear() + '-' + (lrp_today.getMonth() + 1) + '-' + lrp_today.getDate();
+        let lrp_date = lrp_today.getFullYear() + '-' + (lrp_today.getMonth() + 1) + '-' + (lrp_today.getDate()+1);
         document.querySelector("#fecha_aplazado").flatpickr({
             locale: "es",
             minDate: lrp_date

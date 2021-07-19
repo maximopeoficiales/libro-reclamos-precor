@@ -64,12 +64,15 @@ wp_enqueue_style('lrp_styles', asset('css/lrp_styles.css'), '', '1.0.0');
                     <td scope="row" class="text-center font-weight-bold">{{ $reclamo->codigo }}</td>
                     <td class="text-center">{{ $reclamo->fecha }}</td>
                     <td class="font-weight-bold text-center {{ lrp_get_color_by_status($reclamo->estado)}}">{{ $reclamo->estado }}</td>
-                    <td class="text-center">
-                        <a href="{{ $uriReclamoDetalle . '?id=' . $reclamo->id_reclamo }}" class="font-weight-bold">
-
-                            Ver más
+                    <td class="text-center d-md-flex justify-content-center">
+                        <a href="{{ $uriReclamoDetalle . '?id=' . $reclamo->id_reclamo }}"
+                            class="lrp-color-primary font-weight-bold">
+                            <div class="lrp-btn-mini lrp-btn-mini-primary ">
+                                Ver más <i class="mx-1 fa fa-plus" aria-hidden="true"></i>
+                            </div>
                         </a>
-                    </td>
+                    </td>    
+                   
                 </tr>
                 @endforeach
             </tbody>

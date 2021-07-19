@@ -16,7 +16,9 @@
                 <h5>Código Cliente (Opcional)</h5>
                 <div class="lrp-group">
                     <input type="number" name="cod_cli" id="cod_cli" aria-describedby="helpId"
-                        placeholder="Ingresa tu Código de Cliente">
+                        placeholder="Ingresa tu Código de Cliente"
+                        value="{{ $extras->id_cli }}"
+                        >
                     <label for="cod_cli">Código de Cliente</label>
                     <span class="lrp-highlight"></span>
                     <span class="lrp-bar"></span>
@@ -26,14 +28,18 @@
                 <h5>Información Personal</h5>
                 <div class="lrp-group">
                     <input type="text" name="nombre" id="nombre" required placeholder="Ingresa tu Nombre Completo*"
-                        maxlength="50">
+                        maxlength="50"
+                        value="{{ $user->display_name }}"
+                        >
                     <span class="lrp-highlight"></span>
                     <span class="lrp-bar"></span>
                     <label for="nombre">Nombre Completo*</label>
                 </div>
                 <div class="lrp-group">
                     <input type="text" name="documento" id="documento" required placeholder="DNI / C.E / Pasaporte*"
-                        maxlength="25">
+                        maxlength="25"
+                        value="{{ $extras->nrdoc }}"
+                        >
                     <span class="lrp-highlight"></span>
                     <span class="lrp-bar"></span>
                     <label for="documento">DNI / C.E / Pasaporte*</label>
@@ -48,19 +54,24 @@
                 <div class="form-group">
                     <label for="celular">Telefono Celular*</label>
                     <input type="text" name="celular" id="celular" required placeholder="Telefono Celular*"
+                    
                         class="form-control" style="width: 100%;">
                     {{-- <span class="lrp-highlight"></span> --}}
                     {{-- <span class="lrp-bar"></span> --}}
                 </div>
                 <div class="lrp-group">
-                    <input type="email" name="correo" id="correo" required placeholder="Correo*" maxlength="80">
+                    <input type="email" name="correo" id="correo" required placeholder="Correo*" maxlength="80"
+                    value="{{ $user->user_login }}"
+                    >
                     <span class="lrp-highlight"></span>
                     <span class="lrp-bar"></span>
                     <label for="correo">Correo*</label>
                 </div>
 
                 <div class="lrp-group">
-                    <input type="text" name="direccion" id="direccion" placeholder="Direccion" maxlength="150">
+                    <input type="text" name="direccion" id="direccion" placeholder="Direccion" maxlength="150"
+                    value="{{ $extras->drcfisc }}"
+                    >
                     <span class="lrp-highlight"></span>
                     <span class="lrp-bar"></span>
                     <label for="direccion">Direccion</label>
@@ -133,7 +144,9 @@
                     </div>
                     <div class="lrp-group">
                         <input type="text" name="ejecutivo" id="ejecutivo" aria-describedby="helpIdEjecutivo"
-                            placeholder="Nombre de Ejecutivo" maxlength="50">
+                            placeholder="Nombre de Ejecutivo" maxlength="50"
+                            value="{{ $extras->email_eje }}"
+                            >
                         <span class="lrp-highlight"></span>
                         <span class="lrp-bar"></span>
                         <label for="ejecutivo">Nombre de Ejecutivo</label>

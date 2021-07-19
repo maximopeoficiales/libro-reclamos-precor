@@ -1,5 +1,18 @@
 <?php
+function getProfileExtraFieldsUser()
+{
+    global $wpdb;
+    $user_id = get_current_user_id();
+    $results = $wpdb->get_results("SELECT DISTINCT(wp1.field_name),wp2.user_value FROM {$wpdb->prefix}prflxtrflds_fields_id as wp1
+    INNER join {$wpdb->prefix}prflxtrflds_user_field_data as wp2 on wp2.field_id = wp1.field_id WHERE wp2.user_id=$user_id");
+    $wpdb->flush();
 
+    $object = new stdClass();
+    foreach ($results as $value) {
+        $object->{$value->field_name} = $value->user_value;
+    }
+    return $object;
+}
 
 function lrp_transform_text_p(string $text): string
 {
@@ -103,7 +116,6 @@ function lrp_get_url_admin_post(): void
 function lrp_get_url_wordpress($ruta): string
 {
     return home_url("/$ruta");
-    
 }
 /**
  * Crea un input hidden procces_form para que sea procesado
@@ -291,4 +303,3 @@ function lrp_get_color_by_status($status, $bg = false)
     }
     return $color;
 }
-

@@ -20,8 +20,11 @@ class ShortcodeController
             // $data = Users::get();
             $comprobantes = ReclamoComprobante::get();
             $ubigeos = QuerysCustom::getUbigeos();
-            // dd($ubigeos);
-            return view("reclamo.client.create", compact("comprobantes", "ubigeos"));
+            $extras = getProfileExtraFieldsUser();
+            $user = get_userdata(get_current_user_id());
+            return view("reclamo.client.create", compact(
+                "extras","user",
+                "comprobantes", "ubigeos"));
         } catch (\Throwable $th) {
             echo $th;
         }
