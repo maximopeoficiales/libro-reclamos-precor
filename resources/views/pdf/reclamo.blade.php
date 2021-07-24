@@ -119,31 +119,117 @@
 
 
 
-     
+
     </div>
-    <table width="100%">
-        <tr>
-            <td width="50%" align="left">
-            </td>
-            <td width="50%" align="left">
-                @if ($reclamo->ruta_archivo != '' && $reclamo->ruta_archivo != null)
-                    <br>
-                    <table width="100%" border="1px">
-                        <tr>
-                            <td width="50%" align="center" bgcolor="black" class="p-4">
-                                <a href="{{ getAssetUploadsReclamo() . $reclamo->ruta_archivo }}" target="_blank2"
-                                    style=" color: white">
-                                    <b>Descargar Archivo</b>
-                                </a>
-                            </td>
-                        </tr>
-                    </table>
+    @if (!empty($reclamo->ruta_archivo))
+        <table width="100%">
+            <tr>
+                <td width="50%" align="left">
+                </td>
+                <td width="50%" align="left">
+                    @if ($reclamo->ruta_archivo != '' && $reclamo->ruta_archivo != null)
+                        <br>
+                        <table width="100%" border="1px">
+                            <tr>
+                                <td width="50%" align="center" bgcolor="black" class="p-4">
+                                    <a href="{{ getAssetUploadsReclamo() . $reclamo->ruta_archivo }}" target="_blank2"
+                                        style=" color: white">
+                                        <b>Descargar Archivo</b>
+                                    </a>
+                                </td>
+                            </tr>
+                        </table>
 
 
-                @endif
-            </td>
-        </tr>
-    </table>
+                    @endif
+                </td>
+            </tr>
+        </table>
+    @endif
 
-    
+    @if (!empty($reclamo->comentario_admin))
+        <div class="lrp-card my-4">
+            <div class="lrp-card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h3 class="font-weight-bold m-0"><b>Respuesta</b></h3>
+                    <span class="lrp-text-gray-secondary font-weight-bold m-0 py-1">Emitido el
+                        {{ $reclamo->fecha_reclamo }}</span>
+                </div>
+                <div class="py-2">
+                    <p class="lrp-text-gray-secondary font-weight-bold m-0 py-1">Estado</p>
+                    <b class="font-weight-bold">{{ $reclamo->estado }}</b>
+                </div>
+
+                <div class="py-2">
+                    <p class="lrp-text-gray-secondary font-weight-bold m-0 py-1">Comentario</p>
+                    <p class="font-weight-bold">{{ $reclamo->comentario_admin }}</p>
+                </div>
+
+
+            </div>
+        </div>
+        <table width="100%">
+            <tr>
+                <td width="50%" align="left">
+                    @if ($reclamo->ruta_archivo2 != '' && $reclamo->ruta_archivo2 != null)
+                        <br>
+                        <table width="100%" border="1px">
+                            <tr>
+                                <td width="50%" align="center" bgcolor="black" class="p-4">
+                                    <a href="{{ getAssetUploadsReclamo() . $reclamo->ruta_archivo2 }}" target="_blank2"
+                                        style=" color: white">
+                                        <b>Descargar Comprobante</b>
+                                    </a>
+                                </td>
+                            </tr>
+                        </table>
+
+
+                    @endif
+                </td>
+                <td width="50%" align="left">
+                </td>
+            </tr>
+        </table>
+    @endif
+
+
+    <br>
+    @if (!empty($reclamo->comentario_cliente))
+        <div class="lrp-card my-4">
+            <div class="lrp-card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h3 class="font-weight-bold m-0"><b>Respuesta del Cliente</b></h3>
+                    <span class="lrp-text-gray-secondary font-weight-bold m-0 py-1">Emitido el
+                        {{ $reclamo->fecha_reclamo }}</span>
+                </div>
+                <div class="py-2">
+                    <p class="lrp-text-gray-secondary font-weight-bold m-0 py-1">Estado</p>
+                    <b class="font-weight-bold">{{ $reclamo->estado }}</b>
+                </div>
+
+                <div class="py-2">
+                    <p class="lrp-text-gray-secondary font-weight-bold m-0 py-1">Comentario</p>
+                    <p class="font-weight-bold">{{ $reclamo->comentario_cliente }}</p>
+                </div>
+
+
+            </div>
+        </div>
+        @if ($reclamo->ruta_archivo3 != '' && $reclamo->ruta_archivo3 != null)
+            <br>
+            <table width="100%" border="1px">
+                <tr>
+                    <td width="50%" align="center" bgcolor="black" class="p-4">
+                        <a href="{{ getAssetUploadsReclamo() . $reclamo->ruta_archivo3 }}" target="_blank2"
+                            style=" color: white">
+                            <b>Descargar Comprobante</b>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        @endif
+    @endif
+
+
 @endsection
