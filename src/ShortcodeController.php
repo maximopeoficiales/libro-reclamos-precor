@@ -2,11 +2,11 @@
 
 namespace IZNOPS;
 
-use IZNOP\Models\QuerysCustom;
-use IZNOP\Models\Reclamo;
-use IZNOP\Models\ReclamoComprobante;
-use IZNOP\Models\ReclamoEstado;
-use IZNOP\Models\Users;
+use IZNOPS\Models\QuerysCustom;
+use IZNOPS\Models\Reclamo;
+use IZNOPS\Models\ReclamoComprobante;
+use IZNOPS\Models\ReclamoEstado;
+use IZNOPS\Models\Users;
 use IZNOPS\Bcrypt\Bcrypt;
 use IZNOPS\Enums\RoutesReclamo;
 

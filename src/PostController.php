@@ -2,7 +2,7 @@
 
 namespace IZNOPS;
 
-use IZNOP\Models\Reclamo;
+use IZNOPS\Models\Reclamo;
 use IZNOPS\Bcrypt\Bcrypt;
 use IZNOPS\Enums\ActionName;
 use IZNOPS\Enums\RoutesReclamo;

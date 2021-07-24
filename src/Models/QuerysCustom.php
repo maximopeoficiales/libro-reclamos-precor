@@ -1,6 +1,6 @@
 <?php
 
-namespace IZNOP\Models;
+namespace IZNOPS\Models;
 
 use Illuminate\Database\Capsule\Manager;
 
