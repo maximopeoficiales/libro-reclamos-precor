@@ -7,12 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $reclamo->tipo_reclamo }}-{{ $reclamo->codigo }}</title>
     <style media="print">
-        @php
-            require assetPath('css/bootstrap-pdf.css');
+        @php require assetPath('css/bootstrap-pdf.css');
+
         @endphp
-    
+
     </style>
 </head>
+
 <body>
     @yield('body')
 </body>

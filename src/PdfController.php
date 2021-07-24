@@ -26,10 +26,10 @@ class PdfController
                 echo view("pdf.reclamo", compact("reclamo"));
                 $HTMLoutput = ob_get_contents();
                 ob_end_clean();
-                        $mpdf->SetHTMLHeader('
-                <div style="text-align: right; font-weight: bold;">
-                ' . $reclamo->tipo_reclamo . " $reclamo->codigo" . '
-                </div>');
+                //         $mpdf->SetHTMLHeader('
+                // <div style="text-align: right; font-weight: bold;">
+                // ' . $reclamo->tipo_reclamo . " $reclamo->codigo" . '
+                // </div>');
                         $mpdf->SetHTMLFooter('
                 <table width="100%">
                 <tr>

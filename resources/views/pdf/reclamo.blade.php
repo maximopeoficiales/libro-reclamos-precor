@@ -8,15 +8,35 @@
         }
 
     </style>
-    <div class="">
+    <table width="100%">
+        <tr>
+            <td width="50%" align="left">
+                @if (lrp_isMaxco())
+                    <img src="{{ assetPath('img/maxco_logo.jpg') }}" style="height: 60px; width: 150px;">
+                @else
+                    <img src="{{ assetPath('img/precor_logo.jpg') }}" style="height: 60px; width: 150px;">
+                @endif
+            </td>
+            <td width="50%" align="right">
+                <div style="text-align: right; font-weight: bold;">
+                    {{ $reclamo->tipo_reclamo }} {{ $reclamo->codigo }}
+                </div>
+            </td>
+        </tr>
+    </table>
 
+    <div class="">
         <table width="100%">
             <tr>
                 <td width="50%" align="left">{{ $reclamo->estado }}</td>
                 <td width="50%" align="right">{{ $reclamo->fecha_reclamo }}</td>
             </tr>
         </table>
-        <h3 class=" font-weight-bold"><b>Detalles de Reclamo</b></h3>
+        @if (strtolower($reclamo->tipo_reclamo) == 'reclamo')
+            <h3 class=" font-weight-bold"><b>Detalles de {{ $reclamo->tipo_reclamo }}</b></h3>
+        @else
+            <h3 class=" font-weight-bold"><b>Detalles de la {{ $reclamo->tipo_reclamo }}</b></h3>
+        @endif
         <table width="100%">
             <tr>
                 <td width="50%" align="left">

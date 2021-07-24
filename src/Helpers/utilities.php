@@ -24,3 +24,8 @@ function getAssetUploadsReclamo()
 {
     return wp_get_upload_dir()["baseurl"] . "/reclamo/";
 }
+
+function lrp_isMaxco(): bool
+{
+    return true;
+}
