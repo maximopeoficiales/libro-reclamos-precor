@@ -1,5 +1,8 @@
 <?php
 // http://localhost/wp-content/plugins/mi-custom-post-type-computers/assets
+
+use IZNOPS\Utils\Enviroments;
+
 function asset($uri = ""): string
 {
     return plugin_dir_url(dirname(dirname(__FILE__))) . "assets/$uri";
@@ -27,5 +30,6 @@ function getAssetUploadsReclamo()
 
 function lrp_isMaxco(): bool
 {
-    return true;
+    $env = new Enviroments();
+    return $env->isMaxco;
 }

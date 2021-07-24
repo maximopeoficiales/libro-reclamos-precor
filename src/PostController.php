@@ -7,6 +7,7 @@ use IZNOPS\Bcrypt\Bcrypt;
 use IZNOPS\Enums\ActionName;
 use IZNOPS\Enums\RoutesReclamo;
 use IZNOPS\Uploader\Uploader;
+use IZNOPS\Utils\ReclamoMailer;
 use IZNOPS\Validator\ReclamoValidator;
 use IZNOPS\Validator\Validator;
 
@@ -71,6 +72,12 @@ class PostController
                 $reclamo->created_at =  lrp_getFechaActual(true);
                 $reclamo->save();
 
+                // enviar correo de creacion de queja
+                if ($_POST["id_tipo_reclamacion"] == 1) {
+                    ReclamoMailer::sendEmailPDF("Reclamo registrado satisfactoriamente", $reclamo, 1);
+                } else {
+                    ReclamoMailer::sendEmailPDF("Queja registrada satisfactoriamente", $reclamo, 1);
+                }
                 lrp_redirect_create($page);
             } else {
                 // no es valido
