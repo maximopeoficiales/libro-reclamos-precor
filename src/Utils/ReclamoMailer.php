@@ -20,6 +20,7 @@ class ReclamoMailer
         // esta parte tendria que ser gestionado por el tipo de email
         ob_start();
         $reclamo = Reclamo::getReclamoAdminByID($reclamo->id)[0];
+        $reclamo->id_estado = 1;
         // cargo el template
         echo view("email.email", compact("reclamo"));
         $body = ob_get_contents();

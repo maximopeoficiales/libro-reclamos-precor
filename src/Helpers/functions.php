@@ -1,4 +1,8 @@
 <?php
+
+use IZNOPS\Bcrypt\Bcrypt;
+use IZNOPS\Enums\RoutesReclamo;
+
 function getProfileExtraFieldsUser()
 {
     global $wpdb;
@@ -302,4 +306,11 @@ function lrp_get_color_by_status($status, $bg = false)
         $color = $prefix . "pink";
     }
     return $color;
+}
+
+
+function get_reclamoDetalle($id_reclamo): string
+{
+    $id_reclamo = Bcrypt::encryption($id_reclamo);
+    return lrp_get_url_wordpress(RoutesReclamo::detalle . "/?id=$id_reclamo");
 }

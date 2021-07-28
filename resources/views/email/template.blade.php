@@ -1,3 +1,9 @@
+
+@if (lrp_isMaxco())
+    
+@else
+    
+@endif
 @includeIf('email.header', ['reclamo' => $reclamo])
 
 
@@ -5,3 +11,10 @@
 
 
 @includeIf('email.footer', ['reclamo' => $reclamo])
+
+
+@php
+     /* require assetPath('css/bootstrap-pdf.css'); */
+
+
+    @endphp

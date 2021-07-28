@@ -52,8 +52,8 @@ class PdfController
     {
         $id_reclamo = $_GET["id_reclamo"];
         $reclamo = Reclamo::getReclamoAdminByID($id_reclamo)[0];
+        // dd($reclamo);
         if (ReclamoMailer::sendEmailPDF($reclamo)) {
-            # code...
             echo "correo envio correctamente";
         } else {
             echo "Error en el envio de correo";

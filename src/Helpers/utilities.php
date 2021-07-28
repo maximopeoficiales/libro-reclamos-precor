@@ -28,6 +28,15 @@ function getAssetUploadsReclamo()
     return wp_get_upload_dir()["baseurl"] . "/reclamo/";
 }
 
+function assetImgEmail($nameImg): string
+{
+    if (lrp_isMaxco()) {
+        return asset("img/email/maxco/$nameImg");
+    } else {
+        return asset("img/email/precor/$nameImg");
+    }
+}
+
 function lrp_isMaxco(): bool
 {
     $env = new Enviroments();
