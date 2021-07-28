@@ -53,6 +53,8 @@ class Config
         ['admin_post_nopriv_process_form', [__NAMESPACE__ . '\PostController', 'initializer']],
         ['wp_ajax_lrp_reclamo_pdf', [__NAMESPACE__ . '\PdfController', 'generate']],
         ['wp_ajax_nopriv_lrp_reclamo_pdf', [__NAMESPACE__ . '\PdfController', 'generate']],
+        ['wp_ajax_nopriv_lrp_reclamo_email', [__NAMESPACE__ . '\PdfController', 'testEmail']],
+        ['wp_ajax_lrp_reclamo_email', [__NAMESPACE__ . '\PdfController', 'testEmail']],
     ];
     /**
      * add custom shortcodes

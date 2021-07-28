@@ -33,3 +33,8 @@ function lrp_isMaxco(): bool
     $env = new Enviroments();
     return $env->isMaxco;
 }
+
+function getEnviroments(): Enviroments
+{
+    return new Enviroments();
+}

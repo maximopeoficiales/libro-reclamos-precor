@@ -3,6 +3,7 @@
 namespace IZNOPS;
 
 use IZNOPS\Models\Reclamo;
+use IZNOPS\Utils\ReclamoMailer;
 use Mpdf\Mpdf;
 
 class PdfController
@@ -30,7 +31,7 @@ class PdfController
                 // <div style="text-align: right; font-weight: bold;">
                 // ' . $reclamo->tipo_reclamo . " $reclamo->codigo" . '
                 // </div>');
-                        $mpdf->SetHTMLFooter('
+                $mpdf->SetHTMLFooter('
                 <table width="100%">
                 <tr>
                 <td width="50%" align="center">{PAGENO}/{nbpg}</td>
@@ -41,10 +42,21 @@ class PdfController
                 // $pathPdf = assetPath("pdf/$reclamo->tipo_reclamo-$reclamo->codigo.pdf");
                 $mpdf->Output();
                 // return $pathPdf;
-               
+
             }
         } catch (\Throwable $th) {
             echo $th;
+        }
+    }
+    public function testEmail()
+    {
+        $id_reclamo = $_GET["id_reclamo"];
+        $reclamo = Reclamo::getReclamoAdminByID($id_reclamo)[0];
+        if (ReclamoMailer::sendEmailPDF($reclamo)) {
+            # code...
+            echo "correo envio correctamente";
+        } else {
+            echo "Error en el envio de correo";
         }
     }
 }

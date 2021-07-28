@@ -73,11 +73,8 @@ class PostController
                 $reclamo->save();
 
                 // enviar correo de creacion de queja
-                if ($_POST["id_tipo_reclamacion"] == 1) {
-                    ReclamoMailer::sendEmailPDF("Reclamo registrado satisfactoriamente", $reclamo, 1);
-                } else {
-                    ReclamoMailer::sendEmailPDF("Queja registrada satisfactoriamente", $reclamo, 1);
-                }
+                ReclamoMailer::sendEmailPDF($reclamo);
+                
                 lrp_redirect_create($page);
             } else {
                 // no es valido
