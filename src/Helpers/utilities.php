@@ -30,10 +30,12 @@ function getAssetUploadsReclamo()
 
 function assetImgEmail($nameImg): string
 {
+    $nameImg = str_replace(" ", "%20", $nameImg);
+
     if (lrp_isMaxco()) {
-        return urlencode(asset("img/email/maxco/$nameImg"));
+        return asset("img/email/maxco/$nameImg");
     } else {
-        return urlencode(asset("img/email/precor/$nameImg"));
+        return asset("img/email/precor/$nameImg");
     }
 }
 
