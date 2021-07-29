@@ -74,7 +74,7 @@ class PostController
 
                 // enviar correo de creacion de queja
                 ReclamoMailer::sendEmailPDF($reclamo);
-                
+
                 lrp_redirect_create($page);
             } else {
                 // no es valido
@@ -102,6 +102,7 @@ class PostController
                 $reclamo->updated_at =  lrp_getFechaActual(true);
                 $reclamo->save();
                 $id_reclamo = Bcrypt::encryption($id_reclamo);
+                ReclamoMailer::sendEmailPDF($reclamo);
                 lrp_redirect(RoutesReclamo::adminDetalle . "?id=$id_reclamo&msg=1");
             } else {
                 // no es valido
@@ -125,6 +126,7 @@ class PostController
                 $reclamo->updated_at =  lrp_getFechaActual(true);
                 $reclamo->save();
                 $id_reclamo = Bcrypt::encryption($id_reclamo);
+                ReclamoMailer::sendEmailPDF($reclamo);
                 lrp_redirect(RoutesReclamo::detalle . "?id=$id_reclamo&msg=1");
             } else {
                 // no es valido
