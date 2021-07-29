@@ -29,7 +29,7 @@ function getAssetUploadsReclamo()
 }
 
 function assetImgEmail($nameImg): string
-{;
+{
     if (lrp_isMaxco()) {
         return urlencode(asset("img/email/maxco/$nameImg"));
     } else {
