@@ -106,6 +106,7 @@ class PostController
                 lrp_redirect(RoutesReclamo::adminDetalle . "?id=$id_reclamo&msg=1");
             } else {
                 // no es valido
+                $id_reclamo = Bcrypt::encryption($id_reclamo);
                 lrp_redirect(RoutesReclamo::adminDetalle, $responseValidator["errors"] . "&id=$id_reclamo");
             }
         } catch (\Throwable $th) {
@@ -129,6 +130,7 @@ class PostController
                 ReclamoMailer::sendEmailPDF($reclamo);
                 lrp_redirect(RoutesReclamo::detalle . "?id=$id_reclamo&msg=1");
             } else {
+                $id_reclamo = Bcrypt::encryption($id_reclamo);
                 // no es valido
                 lrp_redirect(RoutesReclamo::detalle, $responseValidator["errors"] . "&id=$id_reclamo");
             }
