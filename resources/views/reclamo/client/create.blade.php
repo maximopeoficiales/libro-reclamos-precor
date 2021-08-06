@@ -16,9 +16,7 @@
                 <h5>Código Cliente (Opcional)</h5>
                 <div class="lrp-group">
                     <input type="number" name="cod_cli" id="cod_cli" aria-describedby="helpId"
-                        placeholder="Ingresa tu Código de Cliente"
-                        value="{{ $extras->id_cli }}"
-                        >
+                        placeholder="Ingresa tu Código de Cliente" value="{{ $extras->id_cli }}">
                     <label for="cod_cli">Código de Cliente</label>
                     <span class="lrp-highlight"></span>
                     <span class="lrp-bar"></span>
@@ -28,18 +26,14 @@
                 <h5>Información Personal</h5>
                 <div class="lrp-group">
                     <input type="text" name="nombre" id="nombre" required placeholder="Ingresa tu Nombre Completo*"
-                        maxlength="50"
-                        value="{{ $user->display_name }}"
-                        >
+                        maxlength="50" value="{{ $user->display_name }}">
                     <span class="lrp-highlight"></span>
                     <span class="lrp-bar"></span>
                     <label for="nombre">Nombre Completo*</label>
                 </div>
                 <div class="lrp-group">
                     <input type="text" name="documento" id="documento" required placeholder="DNI / C.E / Pasaporte*"
-                        maxlength="25"
-                        value="{{ $extras->nrdoc }}"
-                        >
+                        maxlength="25" value="{{ $extras->nrdoc }}">
                     <span class="lrp-highlight"></span>
                     <span class="lrp-bar"></span>
                     <label for="documento">DNI / C.E / Pasaporte*</label>
@@ -54,15 +48,13 @@
                 <div class="form-group">
                     <label for="celular">Telefono Celular*</label>
                     <input type="text" name="celular" id="celular" required placeholder="Telefono Celular*"
-                    
                         class="form-control" style="width: 100%;">
                     {{-- <span class="lrp-highlight"></span> --}}
                     {{-- <span class="lrp-bar"></span> --}}
                 </div>
                 <div class="lrp-group">
                     <input type="email" name="correo" id="correo" required placeholder="Correo*" maxlength="80"
-                    value="{{ $user->user_email }}"
-                    >
+                        value="{{ $user->user_email }}">
                     <span class="lrp-highlight"></span>
                     <span class="lrp-bar"></span>
                     <label for="correo">Correo*</label>
@@ -70,8 +62,7 @@
 
                 <div class="lrp-group">
                     <input type="text" name="direccion" id="direccion" placeholder="Direccion" maxlength="150"
-                    value="{{ $extras->drcfisc }}"
-                    >
+                        value="{{ $extras->drcfisc }}">
                     <span class="lrp-highlight"></span>
                     <span class="lrp-bar"></span>
                     <label for="direccion">Direccion</label>
@@ -114,8 +105,8 @@
                         <label for="id_tipo_comprobante">Seleccionar Tipo de Comprobante</label>
                         <select class="form-control" name="id_tipo_comprobante" id="id_tipo_comprobante">
                             {{-- <option value="">Seleccionar Tipo de Comprobante</option> --}}
-                             @foreach ($comprobantes as $comprobante)
-                            <option value="{{ $comprobante->id }}">{{ $comprobante->descripcion }}</option>
+                            @foreach ($comprobantes as $comprobante)
+                                <option value="{{ $comprobante->id }}">{{ $comprobante->descripcion }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -144,9 +135,7 @@
                     </div>
                     <div class="lrp-group">
                         <input type="text" name="ejecutivo" id="ejecutivo" aria-describedby="helpIdEjecutivo"
-                            placeholder="Nombre de Ejecutivo" maxlength="50"
-                            value="{{ $extras->email_eje }}"
-                            >
+                            placeholder="Nombre de Ejecutivo" maxlength="50" value="{{ $extras->email_eje }}">
                         <span class="lrp-highlight"></span>
                         <span class="lrp-bar"></span>
                         <label for="ejecutivo">Nombre de Ejecutivo</label>
@@ -187,7 +176,7 @@
                 <div class="form-group my-2">
                     <label class="custom-file">
                         <input type="file" name="ruta_archivo" id="ruta_archivo" placeholder="Seleccionar Archivo"
-                            class="custom-file-input" aria-describedby="fileHelpId" accept="image/png,image/jpeg">
+                            class="custom-file-input" aria-describedby="fileHelpId" accept="image/png,image/jpeg" required>
                         <span class="custom-file-control"></span>
                     </label>
                     <small id="fileHelpId" class="form-text text-muted">jpg,jpeg y png de hasta 3MB</small>
@@ -203,7 +192,8 @@
                 <label class="form-check-label">
                     <input type="checkbox" class="form-check-input" name="terminos_condiciones" value="checkedValue" checked
                         required>
-                    He leído y acepto la <a href=""><b class="lrp-color-primary">Politica de Tratamiento de Protección de
+                    He leído y acepto la <a href="{{ lrp_get_url_wordpress('privacidad') }}"><b
+                            class="lrp-color-primary">Politica de Tratamiento de Protección de
                             Datos Personales</b></a>
                 </label>
             </div>
@@ -233,6 +223,8 @@
 
         })()
         window.onload = () => {
+
+            $("#id_ubigeo").val(1249);
             $("#id_ubigeo").select2();
             $("#id_tipo_comprobante").select2();
             var phoneInputField = document.querySelector("#celular");
@@ -241,5 +233,14 @@
                 utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
             });
         }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            let lrp_today = new Date();
+            let lrp_date = lrp_today.getFullYear() + '-' + (lrp_today.getMonth() + 1) + '-' + (lrp_today.getDate());
+            document.querySelector("#fecha").flatpickr({
+                locale: "es",
+                maxDate: lrp_date
+            });
+        });
     </script>
 @endsection
