@@ -9,7 +9,7 @@ abstract class ReclamoValidator
         'nombre'                  => 'required|max:50',
         'documento'                  => 'required|digits_between:1,25',
         'nrdoc'                  => 'max:25',
-        'celular'                  => 'required|max:15',
+        'celular'                  => 'required|max:9',
         'correo'                  => 'max:80',
         'direccion'                  => 'max:150',
         'id_ubigeo'                  => 'numeric',
@@ -23,7 +23,7 @@ abstract class ReclamoValidator
         'descripcion'                  => 'required|max:1000',
         'id_tipo_reclamacion'                  => 'required|numeric|max:2|min:1',
         'detalle'                  => 'required|max:1000',
-        'ruta_archivo'                  => 'required|uploaded_file|max:3M|mimes:png,jpeg',
+        'ruta_archivo'                  => 'required|uploaded_file|max:3M|mimes:png,jpeg,pdf,docx,doc',
     ];
 
 

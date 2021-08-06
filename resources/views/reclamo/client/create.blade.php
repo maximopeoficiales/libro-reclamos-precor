@@ -47,7 +47,7 @@
                 </div>
                 <div class="form-group">
                     <label for="celular">Telefono Celular*</label>
-                    <input type="text" name="celular" id="celular" required placeholder="Telefono Celular*"
+                    <input type="text" name="celular" id="celular" required placeholder="Telefono Celular*" maxlength="9"
                         class="form-control" style="width: 100%;">
                     {{-- <span class="lrp-highlight"></span> --}}
                     {{-- <span class="lrp-bar"></span> --}}
@@ -139,7 +139,6 @@
                         <span class="lrp-highlight"></span>
                         <span class="lrp-bar"></span>
                         <label for="ejecutivo">Nombre de Ejecutivo</label>
-                        <small id="helpIdEjecutivo" class="text-muted">Help text</small>
                     </div>
 
                     <div class="form-group">
@@ -176,10 +175,11 @@
                 <div class="form-group my-2">
                     <label class="custom-file">
                         <input type="file" name="ruta_archivo" id="ruta_archivo" placeholder="Seleccionar Archivo"
-                            class="custom-file-input" aria-describedby="fileHelpId" accept="image/png,image/jpeg" required>
+                            class="custom-file-input" aria-describedby="fileHelpId"
+                            accept="application/msword, application/pdf, image/*" required>
                         <span class="custom-file-control"></span>
                     </label>
-                    <small id="fileHelpId" class="form-text text-muted">jpg,jpeg y png de hasta 3MB</small>
+                    <small id="fileHelpId" class="form-text text-muted">pdf,docx,jpg,jpeg y png de hasta 3MB</small>
                 </div>
                 @include('includes.extras.apoyo_queja')
             </div>
@@ -227,11 +227,11 @@
             $("#id_ubigeo").val(1249);
             $("#id_ubigeo").select2();
             $("#id_tipo_comprobante").select2();
-            var phoneInputField = document.querySelector("#celular");
-            var phoneInput = window.intlTelInput(phoneInputField, {
-                preferredCountries: ["pe"],
-                utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
-            });
+            // var phoneInputField = document.querySelector("#celular");
+            // var phoneInput = window.intlTelInput(phoneInputField, {
+            //     preferredCountries: ["pe"],
+            //     utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+            // });
         }
 
         document.addEventListener('DOMContentLoaded', () => {

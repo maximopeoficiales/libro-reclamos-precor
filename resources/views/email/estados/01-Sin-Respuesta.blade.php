@@ -2,8 +2,8 @@
 
 <h1>¡Hola {{ $reclamo->nombre }}!</h1>
 <p>Tu reclamo / queja realizado el <b>{{ $reclamo->fecha_reclamo }}</b> generado bajo el codigo
-    <b>{{ $reclamo->codigo }}</b>, ha sido recibido y sera atendido. Pronto te estaremos comunicando la respuesta através de
-    tu correo y/o podras consultarla mediante nuestra web</p>
+    <b>{{ $reclamo->codigo }}</b>, ha sido recibido y será atendido. Pronto te estaremos comunicando la respuesta através de
+    tu correo y/o podrás consultarla mediante nuestra web</p>
 
 <a href="{{ get_reclamoDetalle($reclamo->id) }}">Consultar Reclamo</a>
 

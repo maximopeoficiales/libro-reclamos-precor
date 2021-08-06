@@ -75,7 +75,7 @@ class PostController
                 // enviar correo de creacion de queja
                 ReclamoMailer::sendEmailPDF($reclamo);
 
-                lrp_redirect_create($page);
+                lrp_redirect(RoutesReclamo::grabado);
             } else {
                 // no es valido
                 lrp_redirect(RoutesReclamo::registrar, $responseValidator["errors"]);
