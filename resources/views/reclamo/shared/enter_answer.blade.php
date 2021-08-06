@@ -44,10 +44,10 @@ wp_enqueue_style('lrp_flatPickrDarkCSS', 'https://npmcdn.com/flatpickr/dist/them
                 </div>
                 <div class="form-group my-4">
                     <label class="custom-file">
-                        <input type="file" name="ruta_archivo2" id="ruta_archivo2" placeholder="Seleccionar Archivo" class="custom-file-input" aria-describedby="fileHelpId" accept="image/png,image/jpeg">
+                        <input type="file" name="ruta_archivo2" id="ruta_archivo2" placeholder="Seleccionar Archivo" class="custom-file-input" aria-describedby="fileHelpId" accept="application/msword, application/pdf, image/*">
                         <span class="custom-file-control"></span>
                     </label>
-                    <small id="fileHelpId" class="form-text text-muted">jpg,jpeg y png de hasta 3MB</small>
+                    <small id="fileHelpId" class="form-text text-muted">pdf,docx,jpg,jpeg y png de hasta 3MB</small>
                 </div>
             </div>
             <div class="d-flex justify-content-end">

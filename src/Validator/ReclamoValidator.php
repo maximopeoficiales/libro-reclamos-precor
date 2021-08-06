@@ -38,6 +38,6 @@ abstract class ReclamoValidator
         'id_reclamo'                  => 'required|numeric',
         'id_estado'                  => 'required|numeric',
         'comentario_cliente'                  => 'max:1000',
-        'ruta_archivo3'                  => 'uploaded_file|max:3M|mimes:png,jpeg',
+        'ruta_archivo3'                  => 'required|uploaded_file|max:3M|mimes:png,jpeg,pdf,docx,doc',
     ];
 }
