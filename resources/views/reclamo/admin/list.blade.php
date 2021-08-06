@@ -150,7 +150,7 @@ wp_enqueue_style('lrp_styles', asset('css/lrp_styles.css'), '', '1.0.0');
         }
         $('#table-admin-reclamos').DataTable({
         order: [
-        [1, "desc"]
+        // [1, "desc"]
         ],
         pageLength: 20,
         rowReorder: {
