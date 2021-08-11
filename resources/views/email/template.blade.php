@@ -1,20 +1,16 @@
+@php
+$color = lrp_getColorBase();
+@endphp
 
-@if (lrp_isMaxco())
-    
-@else
-    
-@endif
-@includeIf('email.header', ['reclamo' => $reclamo])
+@includeIf('email.header', ['reclamo' => $reclamo,"color"=>$color]);
 
 
 @yield('body')
 
 
-@includeIf('email.footer', ['reclamo' => $reclamo])
+@includeIf('email.footer', ['reclamo' => $reclamo,"color"=>$color])
 
 
 @php
-     /* require assetPath('css/bootstrap-pdf.css'); */
-
-
-    @endphp
+/* require assetPath('css/bootstrap-pdf.css'); */
+@endphp

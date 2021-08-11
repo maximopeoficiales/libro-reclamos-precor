@@ -49,3 +49,8 @@ function getEnviroments(): Enviroments
 {
     return new Enviroments();
 }
+
+function lrp_getColorBase()
+{
+    return lrp_isMaxco() ? '#60AB29' : '#072b52';
+}

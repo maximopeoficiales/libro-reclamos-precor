@@ -1,10 +1,14 @@
+@extends('email.shared.template_body',["reclamo"=>$reclamo])
 
+@section('greeting') ¡Hola {{ $reclamo->nombre }}! @endsection
 
-<h1>¡Hola {{ $reclamo->nombre }}!</h1>
-<p>Tu reclamo / queja realizado el <b>{{ $reclamo->fecha_reclamo }}</b> generado bajo el codigo
-    <b>{{ $reclamo->codigo }}</b>, ha sido recibido y será atendido. Pronto te estaremos comunicando la respuesta através de
-    tu correo y/o podrás consultarla mediante nuestra web</p>
+@section('message')
+    Tu reclamo / queja realizado el <b>{{ $reclamo->fecha_reclamo }}</b> generado bajo el codigo
+    <b>{{ $reclamo->codigo }}</b>, ha sido recibido y será atendido. Pronto te estaremos comunicando la respuesta através
+    de
+    tu correo y/o podrás consultarla mediante nuestra web
+@endsection
 
-<a href="{{ get_reclamoDetalle($reclamo->id) }}">Consultar Reclamo</a>
-
-<p><b>Puedes descargar la copia de tu reclamo accediendo al documento adjuntado en este correo</b></p>
+@section('message_important')
+    Puedes descargar la copia de tu reclamo accediendo al documento adjuntado en este correo
+@endsection

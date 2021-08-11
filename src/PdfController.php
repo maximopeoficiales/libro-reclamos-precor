@@ -50,13 +50,18 @@ class PdfController
     }
     public function testEmail()
     {
-        $id_reclamo = $_GET["id_reclamo"];
-        $reclamo = Reclamo::getReclamoAdminByID($id_reclamo)[0];
-        // dd($reclamo);
-        if (ReclamoMailer::sendEmailPDF($reclamo)) {
-            echo "correo envio correctamente";
-        } else {
-            echo "Error en el envio de correo";
+        try {
+            $id_reclamo = $_GET["id_reclamo"];
+            $reclamo = Reclamo::getReclamoAdminByID($id_reclamo)[0];
+            // dd($reclamo);
+            // $reclamo->id_estado = 1;
+            if (ReclamoMailer::sendEmailPDF($reclamo)) {
+                echo "correo envio correctamente";
+            } else {
+                echo "Error en el envio de correo";
+            }
+        } catch (\Throwable $th) {
+            echo $th;
         }
     }
 }
