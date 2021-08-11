@@ -20,7 +20,6 @@
                     <label for="cod_cli">Código de Cliente</label>
                     <span class="lrp-highlight"></span>
                     <span class="lrp-bar"></span>
-                    <small class="text-muted">Help text</small>
                 </div>
 
                 <h5>Información Personal</h5>

@@ -40,9 +40,20 @@ class Reclamo extends Model
                 CONCAT('#',RIGHT(CONCAT('0000000',{$wpdb->prefix}t1.id),7)) as codigo,
                 DATE_FORMAT(DATE({$wpdb->prefix}t1.created_at),'%d/%m/%Y') as fecha,
                 {$wpdb->prefix}t2.descripcion as estado,
-                CASE WHEN {$wpdb->prefix}t1.id_estado in (1,2,5,8) THEN
-                CONCAT('Vence en ',DATEDIFF(NOW(),{$wpdb->prefix}t1.updated_at),' dias')
-                ELSE 'Vencido'
+
+                CASE WHEN {$wpdb->prefix}t1.id_estado in (1,2,5) THEN
+                CASE WHEN DATEDIFF(NOW(),{$wpdb->prefix}t1.updated_at) > 30
+                THEN 'Vencido'
+
+                WHEN DATEDIFF(NOW(),{$wpdb->prefix}t1.updated_at) = 30 THEN 'Vence Hoy' ELSE
+                CONCAT('Vence en ',30 - (DATEDIFF(NOW(),{$wpdb->prefix}t1.updated_at)),' dias') END
+
+                WHEN {$wpdb->prefix}t1.id_estado IN (8) THEN
+                CASE WHEN DATEDIFF(NOW(),{$wpdb->prefix}t1.fecha_aplazado) > 30
+                THEN 'Vencido'
+                WHEN DATEDIFF(NOW(),{$wpdb->prefix}t1.fecha_aplazado) = 30 THEN 'Vence hoy' ELSE
+                CONCAT('Vence en ',30 - (DATEDIFF(NOW(),{$wpdb->prefix}t1.fecha_aplazado)),' dias') END
+                ELSE ''
                 END as vencimiento,
                 {$wpdb->prefix}t3.descripcion as tipo_comprobante,
                 {$wpdb->prefix}t1.comprobante,
