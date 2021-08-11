@@ -91,11 +91,13 @@ class Reclamo extends Model
         return Manager::table("reclamo AS t1")
             ->selectRaw("{$wpdb->prefix}t1.id as id_reclamo,CONCAT('#',RIGHT(CONCAT('0000000',{$wpdb->prefix}t1.id),7)) as codigo,
             DATE_FORMAT(DATE({$wpdb->prefix}t1.fecha),'%d/%m/%Y') as fecha_compra,
+            
             DATE_FORMAT(DATE({$wpdb->prefix}t1.updated_at),'%d/%m/%Y') as fecha_reclamo,
             {$wpdb->prefix}t2.descripcion as estado,
             {$wpdb->prefix}t1.*,
             CONCAT({$wpdb->prefix}t6.descripcion,',',{$wpdb->prefix}t5.descripcion,',',{$wpdb->prefix}t4.descripcion) as departamentoProvinciaDistrito,
             {$wpdb->prefix}t3.descripcion as tipo_comprobante,
+            DATE_FORMAT(DATE({$wpdb->prefix}t1.fecha_aplazado),'%d/%m/%Y') as fecha_aplazado,
             CASE WHEN {$wpdb->prefix}t1.id_tipo_reclamacion = 1 THEN 'Reclamo' ELSE 'Queja' END AS tipo_reclamo
             ")
             ->join("reclamo_estado as t2", "t2.id", "=", "t1.id_estado")
