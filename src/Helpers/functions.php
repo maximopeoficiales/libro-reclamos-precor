@@ -230,6 +230,10 @@ function lrp_getYears(): array
     }
     return $arrayAno;
 }
+function lrp_getYearCurrent()
+{
+    return  intval(date("Y"));
+}
 
 /**
  * Retorna True si el usuario logueado es el usuario creador

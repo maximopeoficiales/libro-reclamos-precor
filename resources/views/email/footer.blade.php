@@ -74,11 +74,25 @@
                                 margin-top: 0;
                                 margin-bottom: 0;
                               ">
-                                    <a href="http://www.example.com/" rel="noopener" style="
+                                    <a href="{{ lrp_get_url_wordpress('privacidad') }}" rel="noopener" style="
                                   text-decoration: underline;
                                   color: #f7f6f5;
-                                " target="_blank" title="http://www.example.com/">Terms &amp; Conditions</a>
+                                " target="_blank" title="{{ lrp_get_url_wordpress('privacidad') }}">Terms &amp; Conditions</a>
                                 </p>
+                                <p
+                                style="
+                                  margin: 0;
+                                  font-size: 12px;
+                                  line-height: 1.2;
+                                  text-align: center;
+                                  word-break: break-word;
+                                  mso-line-height-alt: 14px;
+                                  margin-top: 0;
+                                  margin-bottom: 0;
+                                "
+                              >
+                                <span style="color: #c0c0c0"><br /></span>
+                              </p>
                                 <p style="
                                 margin: 0;
                                 text-align: center;
@@ -88,49 +102,9 @@
                                 margin-top: 0;
                                 margin-bottom: 0;
                               ">
-                                    Integer eget nibh vel massa gravida ullamcorper.
-                                    Sed a viverra ante. Nullam posuere pellentesque
-                                    lectus, nec vehicula felis rutrum ac. Maecenas
-                                    porta facilisis turpis, eget imperdiet purus.
+                                   <b> © Copyright {{ lrp_getYearCurrent() }}. {{ lrp_getTitleProyect() }}</b>
                                 </p>
-                                <p style="
-                                margin: 0;
-                                font-size: 12px;
-                                line-height: 1.2;
-                                text-align: center;
-                                word-break: break-word;
-                                mso-line-height-alt: 14px;
-                                margin-top: 0;
-                                margin-bottom: 0;
-                              ">
-                                    <span style="color: #c0c0c0"><br /><br /></span>
-                                </p>
-                                <p style="
-                                margin: 0;
-                                text-align: center;
-                                line-height: 1.2;
-                                word-break: break-word;
-                                mso-line-height-alt: 14px;
-                                margin-top: 0;
-                                margin-bottom: 0;
-                              ">
-                                    © Copyright 2021. YourBrand All Rights Reserved.
-                                </p>
-                                <p style="
-                                margin: 0;
-                                text-align: center;
-                                line-height: 1.2;
-                                word-break: break-word;
-                                mso-line-height-alt: 14px;
-                                margin-top: 0;
-                                margin-bottom: 0;
-                              ">
-                                    <a href="http://www.example.com/" rel="noopener" style="color: #f7f6f5"
-                                        target="_blank" title="http://www.example.com">Manage Preferences</a>
-                                    |
-                                    <a href="http://www.example.com/" rel="noopener" style="color: #f7f6f5"
-                                        target="_blank" title="http://www.example.com">Unsubscribe</a>
-                                </p>
+                                
                                 <p style="
                                 margin: 0;
                                 font-size: 12px;

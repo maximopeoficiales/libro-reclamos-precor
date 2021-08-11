@@ -8,7 +8,7 @@
                             padding-left: 10px;
                           ">
     <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-spacing: 0; border-collapse: collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;"><tr><td style="padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px" align="center"><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="" style="height:31.5pt;width:138.75pt;v-text-anchor:middle;" arcsize="10%" stroke="false" fillcolor="{{ $color }}"><w:anchorlock/><v:textbox inset="0,0,0,0"><center style="color:#ffffff; font-family:Arial, sans-serif; font-size:16px"><![endif]-->
-    <div style="
+    <div style="              margin-bottom: 10px;
                               text-decoration: none;
                               display: inline-block;
                               color: #ffffff;

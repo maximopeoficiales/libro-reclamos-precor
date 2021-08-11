@@ -14,7 +14,7 @@ class ReclamoMailer
     {
 
         $answerTo = getEnviroments()->answerToEmail;
-        $titleProyect = getEnviroments()->titleProyect;
+        $titleProyect = lrp_getTitleProyect();
         $headers = array("Content-Type: text/html; charset=UTF-8", "From: {$titleProyect} <{$answerTo}>");
         $subject = self::getSubjectByStatusReclamo($reclamo->id_estado);
         // esta parte tendria que ser gestionado por el tipo de email

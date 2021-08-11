@@ -41,7 +41,7 @@ function assetImgEmail($nameImg): string
 
 function lrp_isMaxco(): bool
 {
-    $env = new Enviroments();
+    $env = getEnviroments();
     return $env->isMaxco;
 }
 
@@ -52,5 +52,11 @@ function getEnviroments(): Enviroments
 
 function lrp_getColorBase()
 {
-    return lrp_isMaxco() ? '#60AB29' : '#072b52';
+    $env = getEnviroments();
+    return lrp_isMaxco() ? $env->colorMaxco : $env->colorPrecor;
+}
+function lrp_getTitleProyect()
+{
+    $env = getEnviroments();
+    return lrp_isMaxco() ? $env->titleProyectMaxco : $env->titleProyectPrecor;
 }
