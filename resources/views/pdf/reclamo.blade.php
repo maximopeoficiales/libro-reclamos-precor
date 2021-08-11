@@ -130,6 +130,12 @@
                             <b class="my-1">Descripción</b>
                             <p class="">{{ $reclamo->detalle }}</p>
                         </div>
+                        @if ($reclamo->id_estado == 8)
+                            <div class="">
+                                <b class="my-1">Fecha Aplazado</b>
+                                <p class="">{{ $reclamo->fecha_aplazado }}</p>
+                            </div>
+                        @endif
 
 
                     </div>
