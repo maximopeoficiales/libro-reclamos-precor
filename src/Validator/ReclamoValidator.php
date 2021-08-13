@@ -21,7 +21,7 @@ abstract class ReclamoValidator
         'monto_reclamado'                  => 'numeric',
         'ejecutivo'                  => 'max:50',
         'descripcion'                  => 'required|max:1000',
-        'id_tipo_reclamacion'                  => 'required|numeric|max:2|min:1',
+        // 'id_tipo_reclamacion'                  => 'required|numeric|max:2|min:1',
         'detalle'                  => 'required|max:1000',
         'ruta_archivo'                  => 'required|uploaded_file|max:3M|mimes:png,jpeg,pdf,docx,doc',
     ];

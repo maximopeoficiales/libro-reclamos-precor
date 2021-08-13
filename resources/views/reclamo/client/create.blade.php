@@ -38,6 +38,7 @@
                     <label for="documento">DNI / C.E / Pasaporte*</label>
                 </div>
 
+                <h5>RUC (Opcional)</h5>
                 <div class="lrp-group">
                     <input type="number" name="nrdoc" id="nrdoc" placeholder="RUC">
                     <span class="lrp-highlight"></span>
@@ -148,8 +149,8 @@
                 </div>
 
 
-                <h5>Detalle de Reclamo</h5>
-                <label for="">Marcar Tipo de Reclamacion*</label>
+                <h5 class="my-4">Detalle de Reclamo</h5>
+                <!-- <label for="">Marcar Tipo de Reclamacion*</label>
                 <div class="d-flex justify-content-around">
                     <div class="form-check mx-2">
                         <label class="lrp-checkbox-container d-flex align-items-center" id="id_tipo_reclamo">
@@ -164,7 +165,7 @@
                         </label>
                     </div>
 
-                </div>
+                </div> -->
                 <div class="form-group">
                     <label for="descripcion">Ingrese un detalle de máximo 1000 caracteres*</label>
                     <textarea class="form-control" name="detalle" id="detalle" rows="2" maxlength="1000" required

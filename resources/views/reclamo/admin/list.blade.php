@@ -35,9 +35,9 @@ wp_enqueue_style('lrp_styles', asset('css/lrp_styles.css'), '', '1.0.0');
             </div>
             <div class="col-md-4">
                 <div class="form-group">
-                    <label for="id_tipo_comprobante">Tipo de Documento</label>
+                    <label for="id_tipo_comprobante">Tipo de Comprobante</label>
                     <select name="id_tipo_comprobante" id="id_tipo_comprobante">
-                        <option value="">Selecciona el tipo de documento </option>
+                        <option value="">Selecciona el Tipo de Comprobante </option>
                         @foreach ($comprobantes as $comprobante)
                             <option value="{{ $comprobante->id }}">
                                 {{ $comprobante->descripcion }}

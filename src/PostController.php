@@ -65,7 +65,7 @@ class PostController
                 $reclamo->monto_reclamado =  lrp_sanitize($_POST["monto_reclamado"]);
                 $reclamo->ejecutivo =  lrp_sanitize($_POST["ejecutivo"]);
                 $reclamo->descripcion =  lrp_sanitize($_POST["descripcion"]);
-                $reclamo->id_tipo_reclamacion =  lrp_sanitize($_POST["id_tipo_reclamacion"]);
+                $reclamo->id_tipo_reclamacion =  1;
                 $reclamo->detalle =  lrp_sanitize($_POST["detalle"]);
                 $reclamo->ruta_archivo =  $newFileName;
                 $reclamo->id_estado =  1;
