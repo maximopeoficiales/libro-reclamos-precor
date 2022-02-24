@@ -35,7 +35,20 @@ class ReclamoMailer
         if (!empty($pathPDF)) {
             // envio del primer correo
             self::sendEmail($reclamo->correo,  $reclamo, $pathPDF);
-            // envio de correo2
+            // es nuevo reclamo
+            if ($reclamo->id_estado == 1) {
+                $emails = get_option('precor_emails_reclamos');
+                if ($emails) {
+                    $emails = explode(',', $emails);
+                    foreach ($emails as $email) {
+                        if ($email != "") {
+                            self::sendEmail($email,  $reclamo, $pathPDF);
+                        }
+                    }
+                }
+            }
+
+            // envio el correo2 opcional
             if (!empty($reclamo->correo2)) {
                 self::sendEmail($reclamo->correo2, $reclamo, $pathPDF);
             }
