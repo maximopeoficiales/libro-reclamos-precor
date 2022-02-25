@@ -2,6 +2,7 @@
 
 use IZNOPS\Bcrypt\Bcrypt;
 use IZNOPS\Enums\RoutesReclamo;
+use IZNOPS\Utils\Enviroments;
 
 function getProfileExtraFieldsUser()
 {
@@ -313,7 +314,7 @@ function lrp_get_color_by_status($status, $bg = false)
 }
 
 
-function get_reclamoDetalle($id_reclamo): string
+function get_reclamoDetalle($id_reclamo)
 {
     $id_reclamo = Bcrypt::encryption($id_reclamo);
     return lrp_get_url_wordpress(RoutesReclamo::detalle . "/?id=$id_reclamo");
@@ -321,35 +322,46 @@ function get_reclamoDetalle($id_reclamo): string
 // http://localhost/wp-content/plugins/mi-custom-post-type-computers/assets
 
 
-
-function pathView($path = ""): string
+function lrp_isMaxco(): bool
 {
-    return plugin_dir_path(dirname(dirname(__FILE__))) . "resources/views/$path.php";
+    $env = getEnviroments();
+    return $env->isMaxco;
 }
 
-function assetCss(string $fileCss): string
+function getEnviroments(): Enviroments
 {
-    return plugin_dir_url(dirname(dirname(__FILE__))) . "assets/css/$fileCss";
-}
-function assetStaticReact(string $file): string
-{
-    return plugin_dir_url(dirname(dirname(__FILE__))) . "assets/build/static/$file";
+    return new Enviroments();
 }
 
-function assetStaticCSSReact(string $file): string
+function lrp_getColorBase()
 {
-    return plugin_dir_url(dirname(dirname(__FILE__))) . "assets/build/static/css/$file";
+    $env = getEnviroments();
+    return lrp_isMaxco() ? $env->colorMaxco : $env->colorPrecor;
 }
-function assetStaticJSReact(string $file): string
+function lrp_getTitleProyect()
 {
-    return plugin_dir_url(dirname(dirname(__FILE__))) . "assets/build/static/js/$file";
-}
-function assetBuildReact(string $file): string
-{
-    return plugin_dir_url(dirname(dirname(__FILE__))) . "assets/build/$file";
+    $env = getEnviroments();
+    return lrp_isMaxco() ? $env->titleProyectMaxco : $env->titleProyectPrecor;
 }
 
-function assetWebservices(string $file): string
+
+function getPathUploadsReclamo()
 {
-    return plugin_dir_url(dirname(dirname(__FILE__))) . "assets/webservices/$file";
+    return wp_get_upload_dir()["basedir"] . "/reclamo/";
+}
+
+function getAssetUploadsReclamo()
+{
+    return wp_get_upload_dir()["baseurl"] . "/reclamo/";
+}
+
+function assetImgEmail($nameImg): string
+{
+    $nameImg = str_replace(" ", "%20", $nameImg);
+
+    if (lrp_isMaxco()) {
+        return asset("img/email/maxco/$nameImg");
+    } else {
+        return asset("img/email/precor/$nameImg");
+    }
 }

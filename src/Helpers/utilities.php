@@ -1,7 +1,6 @@
 <?php
 // http://localhost/wp-content/plugins/mi-custom-post-type-computers/assets
 
-use IZNOPS\Utils\Enviroments;
 
 function asset($uri = ""): string
 {
@@ -18,48 +17,34 @@ function path($path = ""): string
     return plugin_dir_path(dirname(dirname(__FILE__))) . $path;
 }
 
-function getPathUploadsReclamo()
+function pathView($path = ""): string
 {
-    return wp_get_upload_dir()["basedir"] . "/reclamo/";
+    return plugin_dir_path(dirname(dirname(__FILE__))) . "resources/views/$path.php";
 }
 
-function getAssetUploadsReclamo()
+function assetCss(string $fileCss): string
 {
-    return wp_get_upload_dir()["baseurl"] . "/reclamo/";
+    return plugin_dir_url(dirname(dirname(__FILE__))) . "assets/css/$fileCss";
+}
+function assetStaticReact(string $file): string
+{
+    return plugin_dir_url(dirname(dirname(__FILE__))) . "assets/build/static/$file";
 }
 
-function assetImgEmail($nameImg): string
+function assetStaticCSSReact(string $file): string
 {
-    $nameImg = str_replace(" ", "%20", $nameImg);
-
-    if (lrp_isMaxco()) {
-        return asset("img/email/maxco/$nameImg");
-    } else {
-        return asset("img/email/precor/$nameImg");
-    }
+    return plugin_dir_url(dirname(dirname(__FILE__))) . "assets/build/static/css/$file";
+}
+function assetStaticJSReact(string $file): string
+{
+    return plugin_dir_url(dirname(dirname(__FILE__))) . "assets/build/static/js/$file";
+}
+function assetBuildReact(string $file): string
+{
+    return plugin_dir_url(dirname(dirname(__FILE__))) . "assets/build/$file";
 }
 
-function lrp_isMaxco(): bool
+function assetWebservices(string $file): string
 {
-    $env = getEnviroments();
-    return $env->isMaxco;
+    return plugin_dir_url(dirname(dirname(__FILE__))) . "assets/webservices/$file";
 }
-
-function getEnviroments(): Enviroments
-{
-    return new Enviroments();
-}
-
-function lrp_getColorBase()
-{
-    $env = getEnviroments();
-    return lrp_isMaxco() ? $env->colorMaxco : $env->colorPrecor;
-}
-function lrp_getTitleProyect()
-{
-    $env = getEnviroments();
-    return lrp_isMaxco() ? $env->titleProyectMaxco : $env->titleProyectPrecor;
-}
-
-
-
