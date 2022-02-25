@@ -318,3 +318,38 @@ function get_reclamoDetalle($id_reclamo): string
     $id_reclamo = Bcrypt::encryption($id_reclamo);
     return lrp_get_url_wordpress(RoutesReclamo::detalle . "/?id=$id_reclamo");
 }
+// http://localhost/wp-content/plugins/mi-custom-post-type-computers/assets
+
+
+
+function pathView($path = ""): string
+{
+    return plugin_dir_path(dirname(dirname(__FILE__))) . "resources/views/$path.php";
+}
+
+function assetCss(string $fileCss): string
+{
+    return plugin_dir_url(dirname(dirname(__FILE__))) . "assets/css/$fileCss";
+}
+function assetStaticReact(string $file): string
+{
+    return plugin_dir_url(dirname(dirname(__FILE__))) . "assets/build/static/$file";
+}
+
+function assetStaticCSSReact(string $file): string
+{
+    return plugin_dir_url(dirname(dirname(__FILE__))) . "assets/build/static/css/$file";
+}
+function assetStaticJSReact(string $file): string
+{
+    return plugin_dir_url(dirname(dirname(__FILE__))) . "assets/build/static/js/$file";
+}
+function assetBuildReact(string $file): string
+{
+    return plugin_dir_url(dirname(dirname(__FILE__))) . "assets/build/$file";
+}
+
+function assetWebservices(string $file): string
+{
+    return plugin_dir_url(dirname(dirname(__FILE__))) . "assets/webservices/$file";
+}

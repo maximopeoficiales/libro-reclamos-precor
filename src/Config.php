@@ -12,7 +12,11 @@ class Config
     * @example ["example_data" => 'foo',]
     * @return void
     */
-    public $plugin_options = [];
+    public $plugin_options = [
+        "precor_validez_oferta" => "08 DIAS",
+        "precor_text_no_hay_stock" => "No hay stock para @nombre_producto, por favor contacte con su ejecutivo de ventas.",
+        "precor_emails_reclamos" => "pepito@gmail.com"
+    ];
     /**
      * Language Option
      * define a unique word for translate call
@@ -28,7 +32,9 @@ class Config
      * get the post data and execute the function
      * @example ['post_data'=>'IZNOPS::function']
      */
-    public $post = [];
+    public $post = [
+        "updateOptionsConfigPrecor" => __NAMESPACE__ . '\AdminController::saveOptions'
+    ];
     /**
      * GET data process
      * get the get data and execute the function
@@ -97,6 +103,13 @@ class Config
     * set your menu option here
     */
     public $plugin_menu = [
+        [
+            "path"      => ["page"],
+            "name"      => "Opciones Precor",
+            "function"  => __NAMESPACE__ . "\AdminController::index",
+            "icon"      => "configuraciones.png",
+            "slug"      => "options-precor",
+        ],
         /*
         [
             "path"      => ["page"],

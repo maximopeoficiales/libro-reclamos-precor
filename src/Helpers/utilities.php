@@ -60,3 +60,6 @@ function lrp_getTitleProyect()
     $env = getEnviroments();
     return lrp_isMaxco() ? $env->titleProyectMaxco : $env->titleProyectPrecor;
 }
+
+
+
