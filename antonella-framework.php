@@ -5,10 +5,10 @@ namespace IZNOPS;
 date_default_timezone_set('America/Lima');
 
 /*
-Plugin Name: Libro de Reclamacion para Precor
+Plugin Name: Libro de Reclamacion y opciones custom para Precor
 Plugin URI:
-Description: Libro de Reclamacion para Precor
-Version: 1.0.0
+Description: Libro de Reclamacion y opciones para Precor
+Version: 2.0.0
 Author: Maximo Apaza Chirhuana
 Author URI:
 Framework: Antonella Framework for WP
