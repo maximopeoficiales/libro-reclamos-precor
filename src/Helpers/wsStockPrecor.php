@@ -3,8 +3,8 @@ function precor_getServiceClient(): SoapClient
 {
     // $wsdl = "http://192.168.50.132:8002/sap/bc/srt/wsdl/bndg_EC860AAA970429F180C900505601055A/wsdl11/allinone/ws_policy/document?sap-client=400?wsdl";
     $wsdl =  assetWebservices("webstock.xml");
-    $username = "EXT_NOVA";
-    $password = "Novategica2$";
+    $username = "Conec";
+    $password = "Pmp12345";
 
     $options = array(
         'trace' => true,
